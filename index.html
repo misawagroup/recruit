@@ -1,0 +1,1131 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="三澤会計グループの採用パンフレット。会計事務所のしごと、少しだけ見せます。">
+<title>三澤会計グループ 採用パンフレット</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Barlow+Condensed:wght@300;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Old+Mincho:wght@700;900&display=swap">
+<style>
+/* Layout: 一冊の本。奉優会パンフの組み方（ページごとの淡い色の紙・縦書きの見出し・細い罫線・大きな番号・白抜きの英字ロゴ）に、
+   採用サイトの緑と黄緑のマーカーを合わせる。帳簿のなごり（二重罫・はんこ・帳簿の数字）は小さく残す。台（stage）は閲覧者のテーマに追従し、ページは常に紙の色。印刷時は同じページをA4縦に1枚ずつ並べる */
+:root {
+  /* 紙（ページ）— テーマに関係なく紙の色 */
+  --paper: #FFFFFF;
+  --paper-2: #EFF7EC;
+  --ink: #1E2823;
+  --ink-soft: #56645C;
+  --rule: #DCE8DF;
+  --green: #1E9A5A;        /* ロゴの緑（大きな文字・面に使う） */
+  --green-deep: #13693F;   /* 小さな文字に使う緑 */
+  --green-ink: #FFFFFF;
+  --green-soft: #BFE3CC;
+  --lime: #DDEB5B;         /* マーカー・アクセント（オフィスのいすの黄緑） */
+  --shu: #D2462E;          /* はんこ */
+  /* 台（ページの外側） */
+  --stage: #E6EEE8;
+  --stage-ink: #1B2822;
+  --stage-soft: #56685E;
+  --surface: #FFFFFF;
+  --surface-line: #C3D0C7;
+  --accent: #13693F;
+  --accent-ink: #FFFFFF;
+  --focus: #13693F;
+  --shadow: rgba(24, 38, 31, .18);
+  /* 書体 */
+  --f-display: "Zen Old Mincho", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+  --f-body: "Zen Kaku Gothic New", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+  --f-fig: "Barlow Condensed", "Arial Narrow", "Zen Kaku Gothic New", sans-serif;
+  --f-script: "Allura", "Snell Roundhand", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --stage: #101713; --stage-ink: #DCE6E0; --stage-soft: #92A49A;
+    --surface: #19221D; --surface-line: #2E3C34;
+    --accent: #7FD3A2; --accent-ink: #0D1912; --focus: #7FD3A2;
+    --shadow: rgba(0, 0, 0, .55);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --stage: #101713; --stage-ink: #DCE6E0; --stage-soft: #92A49A;
+  --surface: #19221D; --surface-line: #2E3C34;
+  --accent: #7FD3A2; --accent-ink: #0D1912; --focus: #7FD3A2;
+  --shadow: rgba(0, 0, 0, .55);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body {
+  background: var(--stage);
+  color: var(--stage-ink);
+  font-family: var(--f-body);
+  -webkit-font-smoothing: antialiased;
+}
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+/* ===== 台 ===== */
+.app {
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 14px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.topline {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 16px;
+}
+.brand {
+  margin: 0;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .06em;
+}
+.sample-note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--stage-soft);
+  line-height: 1.6;
+}
+.sample-note b { color: var(--stage-ink); font-weight: 700; }
+
+.book-wrap {
+  width: 100%;
+  max-width: min(1040px, calc((100vh - 230px) * 1.414));
+  max-width: min(1040px, calc((100dvh - 230px) * 1.414));
+  min-width: 0;
+}
+.book { width: 100%; }
+.book .page {
+  background: var(--paper);
+  box-shadow: inset 0 0 0 1px var(--rule);
+}
+.status {
+  margin: 0;
+  padding: 64px 8px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--stage-soft);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.nav-btn {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--surface-line);
+  background: var(--surface);
+  color: var(--stage-ink);
+  display: grid; place-items: center;
+  cursor: pointer;
+  transition: transform .15s ease, border-color .15s ease;
+}
+.nav-btn:hover:not(:disabled) { border-color: var(--accent); transform: translateY(-1px); }
+.nav-btn:disabled { opacity: .35; cursor: default; }
+.nav-btn svg { width: 18px; height: 18px; }
+.page-no {
+  min-width: 7.5em;
+  text-align: center;
+  font-family: var(--f-fig);
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: .06em;
+  font-variant-numeric: tabular-nums;
+}
+.page-no small { font-family: var(--f-body); font-size: 12px; letter-spacing: .04em; color: var(--stage-soft); }
+.hint { margin: -6px 0 0; font-size: 12px; color: var(--stage-soft); text-align: center; }
+.print-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: .04em;
+  cursor: pointer;
+}
+.print-btn svg { width: 18px; height: 18px; }
+.print-btn:hover { filter: brightness(1.08); }
+
+/* ===== ページ共通（本と印刷で同じ中身を使う） ===== */
+.pg {
+  width: 100%;
+  height: 100%;
+  container-type: inline-size;
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  /* --fit：文字が多くてページに収まらないとき、自動で小さくする倍率 */
+  --fit: 1;
+  /* 文字はスマホでの最小サイズを守り、A4印刷では紙の幅に合わせて縮尺する */
+  --pad: max(20px, 7.4cqw);
+  --gap: calc(max(10px, 3.2cqw) * var(--fit));
+  --t-body: calc(max(12.5px, 2.25cqw) * var(--fit));
+  --t-small: calc(max(10px, 1.7cqw) * var(--fit));
+  --t-label: calc(max(11.5px, 2cqw) * var(--fit));
+  --t-h: calc(max(20px, 5.6cqw) * var(--fit));
+  --t-fig: calc(max(40px, 12.5cqw) * var(--fit));
+}
+/* ページごとの紙の色（奉優会パンフのように、ページで色を変える） */
+.pg-work    { --paper: #FBF6DC; }
+.pg-numbers { --paper: #FFFFFF; }
+.pg-senpai  { --paper: #E6EEF5; }
+.pg-open    { --paper: #E7F3EA; }
+.pg-body {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  padding: var(--pad);
+}
+/* ページ上端の二重の帯（帳簿の二重罫） */
+.pg-inner::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: max(6px, 1.3cqw);
+  border-top: max(3px, .7cqw) solid var(--green);
+  border-bottom: 1px solid var(--green);
+}
+.rh {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+  letter-spacing: .06em;
+}
+.rh b { font-family: var(--f-fig); font-weight: 600; color: var(--green-deep); letter-spacing: .14em; }
+/* 見出しの番号ラベル（「IDEA 01」のような枠） */
+.en {
+  position: relative;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: max(8px, 1.8cqw);
+  padding-block: max(4px, .9cqw);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.en-tag {
+  display: grid;
+  place-items: center;
+  min-width: calc(max(34px, 8cqw) * var(--fit));
+  aspect-ratio: 1;
+  padding: 0 .4em;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--ink);
+  font-family: var(--f-fig);
+  font-weight: 700;
+  font-size: calc(max(10px, 1.8cqw) * var(--fit));
+  letter-spacing: .04em;
+}
+.en-no {
+  font-family: var(--f-fig);
+  font-weight: 600;
+  font-size: calc(max(34px, 10cqw) * var(--fit));
+  line-height: .9;
+  color: var(--green);
+}
+.en-ja { font-size: var(--t-label); font-weight: 900; line-height: 1.35; color: var(--ink); }
+.h {
+  position: relative;
+  margin: 0;
+  font-weight: 900;
+  font-size: var(--t-h);
+  line-height: 1.45;
+  letter-spacing: .02em;
+  color: var(--ink);
+}
+/* 黄緑のマーカー */
+.mk {
+  background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 94%, transparent 94%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding-inline: .06em;
+}
+.lead {
+  position: relative;
+  margin: 0;
+  font-size: var(--t-body);
+  line-height: 1.85;
+  color: var(--ink);
+}
+.pf {
+  margin-top: auto;
+  display: flex;
+  font-family: var(--f-fig);
+  font-weight: 500;
+  font-size: var(--t-label);
+  letter-spacing: .08em;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.pf.is-odd { justify-content: flex-end; }
+
+/* 白抜きのロゴ風の英字（表紙・裏表紙） */
+.lockup { margin: 0; font-family: var(--f-fig); font-weight: 700; line-height: .84; color: #FFFFFF; letter-spacing: .01em; }
+.lockup span { display: block; }
+.lockup .lk-big { font-size: max(48px, 17cqw); }
+.lockup .lk-small { font-size: max(16px, 5.4cqw); line-height: 1.1; color: var(--lime); letter-spacing: .06em; padding-left: .1em; }
+
+/* --- 表紙 --- */
+.pg-cover { background: var(--green-deep); color: #FFFFFF; }
+.pg-cover::before,
+.pg-cover::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+.pg-cover::before { right: -30cqw; top: 40cqw; width: 92cqw; background: var(--green); opacity: .55; }
+.pg-cover::after { left: 46cqw; top: 104cqw; width: 12cqw; border: max(2px, .5cqw) solid var(--lime); opacity: .9; }
+.pg-cover .pg-body { padding-bottom: 0; }
+.cv-top {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: .8em;
+  font-family: var(--f-fig);
+  font-weight: 600;
+  font-size: var(--t-label);
+  letter-spacing: .16em;
+  color: #FFFFFF;
+}
+.cv-top b { font-weight: 700; color: var(--ink); background: var(--lime); padding: .1em .6em; border-radius: 999px; letter-spacing: .1em; }
+.cv-main {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+}
+.cv-en { position: absolute; left: 0; top: 0; }
+.cv-script {
+  display: block;
+  font-family: var(--f-script);
+  font-weight: 400;
+  font-size: max(22px, 6.4cqw);
+  line-height: 1.1;
+  color: var(--lime);
+  letter-spacing: 0;
+}
+.cv-message {
+  position: absolute;
+  right: 0;
+  bottom: max(10px, 4cqw);
+  margin: 0;
+  writing-mode: vertical-rl;
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: calc(max(24px, 6.2cqw) * var(--fit));
+  line-height: 1.65;
+  letter-spacing: .14em;
+  color: #FFFFFF;
+}
+.stamp {
+  position: absolute;
+  left: 2%;
+  bottom: max(12px, 6cqw);
+  width: max(58px, 15cqw);
+  aspect-ratio: 1;
+  max-width: 100%;
+  border-radius: 50%;
+  border: max(2px, .45cqw) solid var(--shu);
+  box-shadow: inset 0 0 0 max(2px, .5cqw) #FFFFFF, inset 0 0 0 max(3px, .75cqw) var(--shu);
+  background: #FFFFFF;
+  display: grid;
+  place-items: center;
+  color: var(--shu);
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: max(14px, 3.4cqw);
+  letter-spacing: .04em;
+  transform: rotate(-9deg);
+}
+.ledger {
+  position: absolute;
+  left: 22%;
+  bottom: max(14px, 6.6cqw);
+  font-family: var(--f-fig);
+  font-weight: 500;
+  font-size: max(12px, 2.6cqw);
+  line-height: 1.35;
+  color: #FFFFFF;
+  opacity: .35;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .04em;
+}
+.ledger .sum { border-top: 1px solid #FFFFFF; margin-top: 3px; padding-top: 2px; border-bottom: 3px double #FFFFFF; }
+/* 下の白い帯（奉優会パンフの表紙のロゴ帯） */
+.cv-foot {
+  position: relative;
+  margin-inline: calc(var(--pad) * -1);
+  padding: max(14px, 4.4cqw) var(--pad) max(16px, 5cqw);
+  background: #FFFFFF;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: max(3px, .8cqw);
+}
+.cv-sub { margin: 0; font-size: var(--t-small); font-weight: 500; letter-spacing: .08em; color: var(--ink-soft); }
+.cv-name { margin: 0; font-weight: 900; font-size: calc(max(20px, 4.6cqw) * var(--fit)); letter-spacing: .14em; color: var(--green-deep); }
+
+/* --- しごと（「13のこと」風：大きな番号と細い罫線） --- */
+.work-list { position: relative; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--ink); }
+.work-list li {
+  display: grid;
+  grid-template-columns: max(44px, 12cqw) minmax(0, 1fr);
+  gap: max(8px, 2cqw);
+  align-items: start;
+  padding-block: calc(max(10px, 2.8cqw) * var(--fit));
+  border-bottom: 1px solid var(--rule);
+}
+.wl-no {
+  font-family: var(--f-fig);
+  font-weight: 600;
+  font-size: calc(max(30px, 8cqw) * var(--fit));
+  line-height: .9;
+  color: var(--green);
+}
+.wl-k { display: flex; align-items: center; gap: .3em; font-size: calc(max(14px, 2.9cqw) * var(--fit)); font-weight: 900; color: var(--ink); line-height: 1.5; }
+.wl-ini {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: 50%;
+  background: var(--green-deep);
+  color: #FFFFFF;
+  font-size: 1.3em;
+  line-height: 1;
+  box-shadow: .12em .12em 0 var(--lime);
+}
+.wl-v { margin: max(3px, .6cqw) 0 0; font-size: var(--t-body); line-height: 1.75; color: var(--ink); }
+
+/* --- 数字（「DATAで見る」風：細い大きな数字、縦書きの見出し） --- */
+.num-wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: max(10px, 3cqw); align-items: start; }
+.num-title {
+  margin: 0;
+  writing-mode: vertical-rl;
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: calc(max(20px, 5cqw) * var(--fit));
+  line-height: 1.5;
+  letter-spacing: .12em;
+  color: var(--ink);
+  padding-left: max(6px, 1.6cqw);
+  border-left: 1px solid var(--ink);
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--ink);
+}
+.stat {
+  padding: calc(max(14px, 5cqw) * var(--fit)) max(6px, 1.6cqw) calc(max(14px, 5cqw) * var(--fit));
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: max(4px, 1cqw);
+  min-width: 0;
+}
+.stat:nth-child(odd) { border-right: 1px solid var(--rule); }
+.stat-k { order: -1; font-size: var(--t-label); font-weight: 700; line-height: 1.45; color: var(--ink); }
+.stat-k::before { content: ""; display: inline-block; width: .55em; height: .55em; margin-right: .4em; border-radius: 50%; background: var(--lime); vertical-align: .08em; }
+.stat-fig {
+  font-family: var(--f-fig);
+  font-weight: 300;
+  font-size: var(--t-fig);
+  line-height: 1;
+  color: var(--green);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+.stat-fig small { font-family: var(--f-body); font-weight: 700; font-size: .3em; margin-left: .15em; letter-spacing: 0; color: var(--ink); }
+.note { position: relative; margin: 0; font-size: var(--t-small); color: var(--ink-soft); }
+
+/* --- 先輩（「My career up!」風：大きな写真と縦書きのひとこと） --- */
+.sp-head { position: relative; display: grid; grid-template-columns: 52% minmax(0, 1fr); gap: max(10px, 3cqw); align-items: start; }
+.photo {
+  aspect-ratio: 4 / 5;
+  max-width: 100%;
+  border-radius: max(10px, 2.4cqw);
+  background:
+    radial-gradient(circle at 50% 38%, #C9D9E6 0 17%, transparent 17.5%),
+    radial-gradient(ellipse at 50% 100%, #C9D9E6 0 42%, transparent 42.5%),
+    #F6F9FC;
+  display: grid;
+  place-items: end center;
+  padding-bottom: max(6px, 1.4cqw);
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+  letter-spacing: .08em;
+}
+.photo.has-img { padding: 0; overflow: hidden; background: #F6F9FC; }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.sp-quote {
+  margin: 0;
+  justify-self: end;
+  height: calc((100cqw - var(--pad) * 2) * .52 * 1.25);
+  writing-mode: vertical-rl;
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: calc(max(15px, 3.6cqw) * var(--fit));
+  line-height: 1.75;
+  letter-spacing: .08em;
+  color: var(--ink);
+  overflow: hidden;
+}
+.sp-tag {
+  position: relative;
+  align-self: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .2em max(10px, 2.4cqw);
+  padding: max(6px, 1.4cqw) max(10px, 2.4cqw);
+  background: var(--lime);
+}
+.sp-name { margin: 0; font-weight: 900; font-size: calc(max(17px, 4cqw) * var(--fit)); line-height: 1.2; }
+.sp-meta { margin: 0; font-size: var(--t-small); color: var(--ink); line-height: 1.5; }
+.qa { position: relative; margin: 0; display: flex; flex-direction: column; border-top: 1px solid var(--ink); }
+.qa > div { padding-block: calc(max(7px, 1.8cqw) * var(--fit)); border-bottom: 1px solid #C9D6E2; }
+.qa dt { display: flex; align-items: center; gap: .5em; font-size: var(--t-label); font-weight: 900; color: var(--ink); }
+.qa dt::before {
+  content: "Q";
+  flex: none;
+  display: grid; place-items: center;
+  width: 1.7em; height: 1.7em;
+  border-radius: 50%;
+  background: var(--green-deep);
+  color: #FFFFFF;
+  font-family: var(--f-fig);
+  font-weight: 700;
+}
+.qa dd { margin: 3px 0 0 calc(var(--t-label) * 2.2); font-size: var(--t-body); line-height: 1.7; }
+
+/* --- オープンカンパニー --- */
+.details { position: relative; margin: 0; display: grid; grid-template-columns: calc(var(--t-label) * 5) minmax(0, 1fr); padding: 0 max(12px, 3cqw); background: #FFFFFF; border-top: 1px solid var(--ink); }
+.details dt, .details dd { padding-block: calc(max(7px, 2cqw) * var(--fit)); border-bottom: 1px solid var(--rule); font-size: var(--t-body); line-height: 1.6; margin: 0; }
+.details dt:last-of-type, .details dd:last-of-type { border-bottom: 0; }
+.details dt { font-weight: 900; color: var(--green-deep); font-size: var(--t-label); }
+.cta-area { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-top: max(4px, 1cqw); }
+.cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: max(11px, 2cqw) max(20px, 4cqw);
+  border-radius: 999px;
+  border: 0;
+  background: var(--green-deep);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: var(--t-body);
+  letter-spacing: .04em;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 max(3px, .7cqw) 0 var(--lime);
+}
+.cta svg { width: 1.1em; height: 1.1em; flex: none; }
+.cta-msg { margin: 0; font-size: var(--t-small); color: var(--shu); min-height: 1.4em; }
+.qr-row { position: relative; display: flex; align-items: center; gap: max(12px, 3cqw); margin-top: max(4px, 1cqw); }
+.qr { width: max(80px, 19cqw); flex: none; background: #FFFFFF; padding: max(4px, .8cqw); }
+.qr svg { display: block; width: 100%; height: auto; }
+.qr svg rect { fill: #FFFFFF; }
+.qr svg path { fill: var(--ink); }
+.qr-text { font-size: var(--t-small); line-height: 1.7; color: var(--ink-soft); min-width: 0; overflow-wrap: anywhere; }
+.qr-text b { display: block; color: var(--ink); font-size: var(--t-label); }
+
+/* --- 裏表紙 --- */
+.pg-back { background: var(--green-deep); color: #FFFFFF; }
+.pg-back::before {
+  content: "";
+  position: absolute;
+  left: -28cqw;
+  top: -20cqw;
+  width: 80cqw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--green);
+  opacity: .55;
+}
+.pg-back .pg-body { justify-content: space-between; }
+.bk-top { position: relative; display: flex; flex-direction: column; gap: max(8px, 2cqw); }
+.bk-top .lk-big { font-size: max(36px, 12cqw); }
+.bk-msg { margin: 0; font-family: var(--f-display); font-weight: 700; font-size: var(--t-label); letter-spacing: .12em; color: var(--green-soft); }
+.bk-main { position: relative; display: flex; flex-direction: column; gap: max(8px, 1.8cqw); }
+.bk-script { font-family: var(--f-script); font-size: max(24px, 7cqw); line-height: 1; color: var(--lime); }
+.bk-name { margin: 0; font-weight: 900; font-size: calc(max(26px, 6.4cqw) * var(--fit)); letter-spacing: .12em; line-height: 1.3; }
+.bk-desc { margin: 0; font-size: var(--t-body); line-height: 1.7; }
+.bk-contact { margin: max(8px, 2cqw) 0 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px max(12px, 2.6cqw); font-size: var(--t-body); }
+.bk-contact dt { font-family: var(--f-fig); font-weight: 600; letter-spacing: .1em; color: var(--lime); }
+.bk-contact dd { margin: 0; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.bk-web { position: relative; display: flex; align-items: center; gap: max(12px, 3cqw); padding-top: max(10px, 2.4cqw); border-top: 1px solid var(--green-soft); }
+.bk-web .qr { width: max(70px, 15cqw); border-radius: max(4px, .8cqw); }
+.bk-web p { margin: 0; font-size: var(--t-small); line-height: 1.7; overflow-wrap: anywhere; min-width: 0; }
+
+/* ページめくりの部品が読めなかったときの代わり（横スクロールで1ページずつ） */
+.book.is-fallback { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+.book.is-fallback .page { flex: 0 0 min(100%, 420px); aspect-ratio: 210 / 297; scroll-snap-align: center; box-shadow: 0 6px 18px var(--shadow); }
+
+/* 文字の量を測るための見えない箱 */
+.measure { position: absolute; left: -10000px; top: 0; visibility: hidden; pointer-events: none; }
+
+/* ===== 印刷レイアウト（画面ではプレビューとして重ねて表示） ===== */
+.print-root { display: none; }
+.print-root.is-open {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  overflow-y: auto;
+  background: var(--stage);
+  color: var(--stage-ink);
+}
+.print-bar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: max(12px, env(safe-area-inset-top, 0px));
+  padding-bottom: 12px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: var(--surface);
+  border-bottom: 1px solid var(--surface-line);
+}
+.print-bar div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.print-bar strong { font-size: 14px; }
+.print-bar span { font-size: 12px; color: var(--stage-soft); line-height: 1.5; }
+.close-btn {
+  flex: none;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--surface-line);
+  background: var(--surface);
+  color: var(--stage-ink);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+.sheets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding-top: 24px;
+  padding-bottom: max(40px, env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.sheet {
+  width: min(100%, 720px);
+  aspect-ratio: 210 / 297;
+  max-width: 100%;
+  box-shadow: 0 8px 24px var(--shadow);
+}
+.sheet-label { margin: 0 0 -14px; font-family: var(--f-fig); font-size: 13px; letter-spacing: .1em; color: var(--stage-soft); }
+
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  :root { padding: 0 !important; }
+  body { background: none; }
+  .app, .print-bar, .sheet-label, .measure { display: none !important; }
+  .print-root { display: block !important; position: static !important; overflow: visible !important; background: none !important; }
+  .sheets { display: block !important; padding: 0 !important; }
+  .sheet { width: 210mm !important; height: 297mm !important; max-width: none !important; aspect-ratio: auto !important; box-shadow: none !important; break-after: page; page-break-after: always; }
+  .sheet:last-child { break-after: auto; page-break-after: auto; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-btn { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="topline">
+    <p id="brand" class="brand">採用パンフレット</p>
+    <p id="sampleNote" class="sample-note" hidden><b>試作版</b>　文章・数字・写真はすべてサンプルです</p>
+  </div>
+
+  <div class="book-wrap">
+    <div id="book" class="book" aria-label="採用パンフレット">
+      <p class="status">読み込んでいます…</p>
+    </div>
+  </div>
+
+  <div id="controls" class="controls" hidden>
+    <button id="prev" class="nav-btn" type="button" aria-label="前のページ">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <span id="pageNo" class="page-no" aria-live="polite">表紙</span>
+    <button id="next" class="nav-btn" type="button" aria-label="次のページ">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+  <p id="hint" class="hint" hidden>ページの端をタップするか、スワイプでめくれます</p>
+
+  <button id="printBtn" class="print-btn" type="button" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg>
+    <span id="printLabel">印刷・PDFで保存</span>
+  </button>
+</div>
+
+<section id="printRoot" class="print-root" aria-label="印刷レイアウト">
+  <div class="print-bar">
+    <div>
+      <strong id="printTitle">印刷するとこうなります（A4縦）</strong>
+      <span>パンフレットを単独のページで開いたときは、このボタンで印刷画面が開きます。</span>
+    </div>
+    <button id="closePrint" class="close-btn" type="button">閉じる</button>
+  </div>
+  <div id="sheets" class="sheets"></div>
+</section>
+
+<div id="measure" class="measure" aria-hidden="true"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<script>
+// ─────────────────────────────────────────────
+// パンフレットの中身は content.json から読み込みます。
+// content.json は、更新用スプレッドシートの［サイトに反映する］で
+// 自動的に書き換わります。このファイル（デザイン）は触らなくて大丈夫です。
+// ─────────────────────────────────────────────
+const CONTENT_URL = "content.json";
+
+// 単独のページで開いたときは印刷画面を開く。
+// 他のページの中に埋め込まれているとき（プレビューなど）は印刷できないことがあるので、印刷レイアウトを画面に表示する。
+const IN_FRAME = (() => { try { return window.self !== window.top; } catch (e) { return true; } })();
+const CAN_PRINT = !IN_FRAME;
+
+const HEADS = { work: "しごと", numbers: "数字", senpai: "先輩社員", open: "オープンカンパニー" };
+// 英字のラベルと、表紙・裏表紙の英字（デザインの一部。シートでは変えない）
+const EN = { work: "WORK", numbers: "DATA", senpai: "PEOPLE", open: "EVENT" };
+const LOCKUP = ["BEYOND", "THE", "NUMBERS."];
+const COVER_SCRIPT = "You know...";
+const COVER_LABEL = "採用パンフレット";
+const WEB_NOTE = "最新の内容はウェブ版でご覧いただけます";
+const A4_W = 794; // A4の幅（px）
+
+let C = null;      // 読み込んだ中身
+let IS_SAMPLE = false;
+
+// ─── 共通の部品 ───
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const nl = s => esc(s).replace(/\n/g, "<br>");
+const filled = arr => (Array.isArray(arr) ? arr : []).filter(o => o && Object.values(o).some(v => String(v || "").trim()));
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function qrSvg(url) {
+  if (!window.qrcode || !url) return "";
+  try {
+    const q = qrcode(0, "M");
+    q.addData(url);
+    q.make();
+    return q.createSvgTag({ cellSize: 4, margin: 0, scalable: true, alt: "QRコード" });
+  } catch (e) { return ""; }
+}
+function runningHead(label) {
+  return `<header class="rh"><span>${esc(C.company)}　${COVER_LABEL}</span><b>${esc(label)}</b></header>`;
+}
+// 番号つきの見出しラベル（例：［WORK］01 しごと）
+function enHead(type, n) {
+  return `<div class="en"><span class="en-tag" aria-hidden="true">${EN[type]}</span><span class="en-no" aria-hidden="true">${String(n - 1).padStart(2, "0")}</span><span class="en-ja">${HEADS[type]}</span></div>`;
+}
+// 仕事の名前：頭の1文字を丸で囲む（3つ並ぶと縦に読める。例：み・さ・わ）
+function itemName(text) {
+  const chars = Array.from(String(text || "").trim());
+  if (!chars.length) return "";
+  return `<span class="wl-k"><span class="wl-ini">${esc(chars[0])}</span>${nl(chars.slice(1).join(""))}</span>`;
+}
+function heading(text) {
+  return `<h2 class="h"><span class="mk">${nl(text)}</span></h2>`;
+}
+function lockup() {
+  return `<p class="lockup" aria-hidden="true"><span class="lk-big">${LOCKUP[0]}</span><span class="lk-small">${LOCKUP[1]}</span><span class="lk-big">${LOCKUP[2]}</span></p>`;
+}
+function folio(n) {
+  return `<footer class="pf ${n % 2 ? "is-odd" : ""}">P.${String(n).padStart(2, "0")}</footer>`;
+}
+function webUrl() {
+  return (C.back && C.back.webUrl) || location.href.split("#")[0];
+}
+
+// ─── ページごとの中身（本と印刷の両方でこの関数を使う） ───
+const PAGES = [
+  { type: "cover", hard: true, render: () => {
+      const c = C.cover || {};
+      return `
+        <div class="cv-top"><span>RECRUIT GUIDE</span><b>${esc(c.year)}</b></div>
+        <div class="cv-main">
+          <div class="cv-en"><span class="cv-script" aria-hidden="true">${COVER_SCRIPT}</span>${lockup()}</div>
+          <h1 class="cv-message">${nl(c.message)}</h1>
+          <div class="stamp" aria-hidden="true">${esc(c.stamp)}</div>
+          <div class="ledger" aria-hidden="true">
+            <div>1,284,000</div><div>365,250</div><div class="sum">1,649,250</div>
+          </div>
+        </div>
+        <div class="cv-foot">
+          <p class="cv-sub">${esc(c.sub)}</p>
+          <p class="cv-name">${esc(C.company)}</p>
+        </div>`;
+  }},
+  { type: "work", inner: true, render: n => {
+      const w = C.work || {};
+      return `
+        ${runningHead(EN.work)}
+        ${enHead("work", n)}
+        ${heading(w.title)}
+        <p class="lead">${nl(w.lead)}</p>
+        <ul class="work-list">
+          ${filled(w.items).map((i, k) => `<li><span class="wl-no" aria-hidden="true">${String(k + 1).padStart(2, "0")}</span><div>${itemName(i.k)}<p class="wl-v">${nl(i.v)}</p></div></li>`).join("")}
+        </ul>
+        ${folio(n)}`;
+  }},
+  { type: "numbers", inner: true, render: n => {
+      const m = C.numbers || {};
+      return `
+        ${runningHead(EN.numbers)}
+        ${enHead("numbers", n)}
+        <div class="num-wrap">
+          <div class="stats">
+            ${filled(m.items).map(i => `
+              <div class="stat">
+                <span class="stat-fig"><span data-count="${esc(i.value)}">${esc(i.value)}</span><small>${esc(i.unit)}</small></span>
+                <span class="stat-k">${nl(i.k)}</span>
+              </div>`).join("")}
+          </div>
+          <h2 class="num-title">${nl(m.title)}</h2>
+        </div>
+        ${m.note ? `<p class="note">${nl(m.note)}</p>` : ""}
+        ${folio(n)}`;
+  }},
+  { type: "senpai", inner: true, render: n => {
+      const s = C.senpai || {};
+      const photo = s.photo
+        ? `<div class="photo has-img"><img src="${esc(s.photo)}" alt="${esc(s.name)}の写真"></div>`
+        : `<div class="photo" role="img" aria-label="先輩社員の写真">写真</div>`;
+      return `
+        ${runningHead(EN.senpai)}
+        ${enHead("senpai", n)}
+        <div class="sp-head">
+          ${photo}
+          <p class="sp-quote">${nl(s.quote)}</p>
+        </div>
+        <div class="sp-tag">
+          <p class="sp-name">${esc(s.name)}</p>
+          <p class="sp-meta">${esc(String(s.meta || "").replace(/\n/g, "　"))}</p>
+        </div>
+        <dl class="qa">
+          ${filled(s.qa).map(i => `<div><dt>${esc(i.q)}</dt><dd>${nl(i.a)}</dd></div>`).join("")}
+        </dl>
+        ${folio(n)}`;
+  }},
+  { type: "open", inner: true, render: (n, print) => {
+      const o = C.open || {};
+      const action = print
+        ? `<div class="qr-row"><div class="qr">${qrSvg(o.applyUrl)}</div>
+             <p class="qr-text"><b>申込みはこちらから</b>スマートフォンで読み取ると申込みページが開きます。<br>${esc(o.applyUrl)}</p></div>`
+        : `<div class="cta-area">
+             <a class="cta" href="${esc(o.applyUrl)}" target="_blank" rel="noopener" data-apply>${esc(o.button)}
+               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+             <p class="cta-msg" aria-live="polite"></p>
+           </div>`;
+      return `
+        ${runningHead(EN.open)}
+        ${enHead("open", n)}
+        ${heading(o.title)}
+        <p class="lead">${nl(o.lead)}</p>
+        <dl class="details">${filled(o.details).map(d => `<dt>${esc(d.k)}</dt><dd>${nl(d.v)}</dd>`).join("")}</dl>
+        ${action}
+        ${folio(n)}`;
+  }},
+  { type: "back", hard: true, render: (n, print) => {
+      const b = C.back || {};
+      const message = String((C.cover && C.cover.message) || "").replace(/\n/g, "");
+      const qr = print ? qrSvg(webUrl()) : "";
+      return `
+        <div class="bk-top">
+          ${lockup()}
+          <p class="bk-msg">${esc(message)}</p>
+        </div>
+        <div class="bk-main">
+          <span class="bk-script" aria-hidden="true">See you soon.</span>
+          <p class="bk-name">${esc(C.company)}</p>
+          <p class="bk-desc">${nl(b.desc)}</p>
+          <dl class="bk-contact">${filled(b.contact).map(c => `<dt>${esc(c.k)}</dt><dd>${esc(c.v)}</dd>`).join("")}</dl>
+        </div>
+        <div class="bk-web">
+          ${qr ? `<div class="qr">${qr}</div>` : ""}
+          <p>${WEB_NOTE}<br>${esc(webUrl())}</p>
+        </div>`;
+  }}
+];
+const total = PAGES.length;
+
+function pageHtml(i, print) {
+  const p = PAGES[i];
+  const cls = `pg pg-${p.type}${p.inner ? " pg-inner" : ""}`;
+  return `<div class="${cls}"><div class="pg-body">${p.render(i + 1, print)}</div></div>`;
+}
+
+// ─── 文字が多すぎるページは、収まるまで文字を少しずつ小さくする ───
+const measure = document.getElementById("measure");
+const hits = (a, b) => a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
+function overflows(pg) {
+  const body = pg.firstElementChild;
+  if (body.scrollHeight > body.clientHeight + 1) return true;
+  const msg = pg.querySelector(".cv-message");
+  if (msg) {
+    const r = msg.getBoundingClientRect();
+    const cs = getComputedStyle(msg);
+    const colW = parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.6;
+    const lines = msg.querySelectorAll("br").length + 1;
+    if (r.width > lines * colW + 2) return true;   // 縦書きの1行が長くて折り返している
+    if (r.bottom > pg.querySelector(".cv-main").getBoundingClientRect().bottom + 1) return true;
+    // 英字・はんこと重なっていないか
+    const en = pg.querySelector(".cv-en");
+    const stamp = pg.querySelector(".stamp");
+    if (en && hits(r, en.getBoundingClientRect())) return true;
+    if (stamp && hits(r, stamp.getBoundingClientRect())) return true;
+  }
+  // 縦書きのひとことが、決めた高さからはみ出していないか
+  const q = pg.querySelector(".sp-quote");
+  if (q && q.scrollWidth > q.clientWidth + 1) return true;
+  return false;
+}
+function fitFor(i, print, w, h) {
+  measure.style.width = w + "px";
+  measure.style.height = h + "px";
+  measure.innerHTML = pageHtml(i, print);
+  const pg = measure.firstElementChild;
+  let f = 1;
+  while (f > 0.7 && overflows(pg)) {
+    f = Math.round((f - 0.04) * 100) / 100;
+    pg.style.setProperty("--fit", f);
+  }
+  measure.innerHTML = "";
+  return f;
+}
+const fitReport = window.__fitReport = { book: [], print: [] };
+function applyFits(pgs, print, w, h, key) {
+  pgs.forEach((pg, i) => {
+    const f = fitFor(i, print, w, h);
+    pg.style.setProperty("--fit", f);
+    if (key) fitReport[key][i] = f;
+  });
+}
+
+// ─── 本（ページめくり） ───
+const book = document.getElementById("book");
+const sheets = document.getElementById("sheets");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+const pageNo = document.getElementById("pageNo");
+const statsIndex = PAGES.findIndex(p => p.type === "numbers");
+let flip = null;
+let statsShown = false;
+
+function bookPageSize() {
+  if (flip) { const r = flip.getBoundsRect(); return [r.pageWidth, r.height]; }
+  const first = book.querySelector(".page");
+  const w = first ? first.offsetWidth : 360;
+  return [w, w * 297 / 210];
+}
+function fitBook() {
+  const [w, h] = bookPageSize();
+  if (w > 0 && h > 0) applyFits(book.querySelectorAll(".page > .pg"), false, w, h, "book");
+}
+function fitSheets(width) {
+  const w = width || A4_W;
+  applyFits(sheets.querySelectorAll(".sheet > .pg"), true, w, w * 297 / 210, width ? "" : "print");
+}
+
+function visiblePages(idx) {
+  if (!flip || flip.getOrientation() === "portrait") return [idx];
+  if (idx === 0) return [0];
+  const left = idx % 2 === 1 ? idx : idx - 1;
+  return left + 1 < total ? [left, left + 1] : [left];
+}
+function countUp() {
+  book.querySelectorAll("[data-count]").forEach(el => {
+    const raw = el.dataset.count;
+    const target = parseFloat(raw);
+    const dec = (raw.split(".")[1] || "").length;
+    if (reduceMotion || isNaN(target)) { el.textContent = raw; return; }
+    const t0 = performance.now();
+    const step = t => {
+      const k = Math.min(1, (t - t0) / 900);
+      const e = 1 - Math.pow(1 - k, 3);
+      el.textContent = (target * e).toFixed(dec);
+      if (k < 1) requestAnimationFrame(step); else el.textContent = raw;
+    };
+    requestAnimationFrame(step);
+  });
+}
+function updateUi(idx) {
+  const vis = visiblePages(idx);
+  const first = vis[0], last = vis[vis.length - 1];
+  let label;
+  if (first === 0) label = "表紙";
+  else if (first === total - 1) label = "裏表紙";
+  else label = vis.length > 1 ? `${first + 1}–${last + 1} <small>/ ${total}</small>` : `${first + 1} <small>/ ${total}</small>`;
+  pageNo.innerHTML = label;
+  prevBtn.disabled = first === 0;
+  nextBtn.disabled = last === total - 1;
+  const seeStats = vis.includes(statsIndex);
+  if (seeStats && !statsShown) countUp();
+  statsShown = seeStats;
+}
+
+function startBook() {
+  book.innerHTML = PAGES.map((p, i) =>
+    `<div class="page"${p.hard ? ' data-density="hard"' : ""}>${pageHtml(i, false)}</div>`).join("");
+  if (window.St && St.PageFlip) {
+    flip = new St.PageFlip(book, {
+      width: 420, height: 594, size: "stretch",
+      minWidth: 290, maxWidth: 520, minHeight: 300, maxHeight: 736,
+      showCover: true, usePortrait: true, mobileScrollSupport: false,
+      maxShadowOpacity: 0.35, flippingTime: reduceMotion ? 300 : 800
+    });
+    flip.loadFromHTML(book.querySelectorAll(".page"));
+    flip.on("flip", e => updateUi(e.data));
+    flip.on("changeOrientation", () => { updateUi(flip.getCurrentPageIndex()); fitBook(); });
+    prevBtn.addEventListener("click", () => flip.flipPrev());
+    nextBtn.addEventListener("click", () => flip.flipNext());
+  } else {
+    // ページめくりの部品が読めないときは、横スクロールで見せる
+    book.classList.add("is-fallback");
+    const pages = [...book.querySelectorAll(".page")];
+    const current = () => Math.round(book.scrollLeft / (pages[0].offsetWidth + 16));
+    const go = d => pages[Math.max(0, Math.min(total - 1, current() + d))].scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", inline: "center", block: "nearest" });
+    prevBtn.addEventListener("click", () => go(-1));
+    nextBtn.addEventListener("click", () => go(1));
+    book.addEventListener("scroll", () => updateUi(current()), { passive: true });
+  }
+  updateUi(0);
+}
+
+// ─── 印刷 ───
+const printRoot = document.getElementById("printRoot");
+const printBtn = document.getElementById("printBtn");
+const closeBtn = document.getElementById("closePrint");
+function openPreview() {
+  printRoot.classList.add("is-open");
+  document.body.style.overflow = "hidden";
+  const s = sheets.querySelector(".sheet");
+  if (s) fitSheets(s.offsetWidth);
+  printRoot.scrollTop = 0;
+  closeBtn.focus();
+}
+function closePreview() {
+  printRoot.classList.remove("is-open");
+  document.body.style.overflow = "";
+  fitSheets();
+  printBtn.focus();
+}
+function startPrint() {
+  sheets.innerHTML = PAGES.map((p, i) =>
+    `<p class="sheet-label">${i + 1} / ${total}</p><div class="sheet">${pageHtml(i, true)}</div>`).join("");
+  document.getElementById("printTitle").textContent = `印刷するとこうなります（A4縦・${total}枚）`;
+  if (CAN_PRINT) {
+    printBtn.addEventListener("click", () => { fitSheets(); window.print(); });
+  } else {
+    document.getElementById("printLabel").textContent = "印刷レイアウトを見る";
+    printBtn.addEventListener("click", openPreview);
+  }
+  closeBtn.addEventListener("click", closePreview);
+  window.addEventListener("beforeprint", () => fitSheets());
+}
+
+// ─── 起動 ───
+async function loadContent() {
+  const res = await fetch(CONTENT_URL, { cache: "no-cache" });
+  if (!res.ok) throw new Error("HTTP " + res.status);
+  return res.json();
+}
+function showError() {
+  book.innerHTML = `<p class="status">パンフレットを読み込めませんでした。<br>時間をおいて、もう一度開いてください。</p>`;
+}
+
+(async function init() {
+  try { C = await loadContent(); } catch (e) { showError(); return; }
+  C.company = C.company || "";
+  IS_SAMPLE = !!C._sample;
+  document.getElementById("brand").textContent = `${C.company}　${COVER_LABEL}`;
+  document.getElementById("sampleNote").hidden = !IS_SAMPLE;
+
+  startBook();
+  startPrint();
+  ["controls", "hint", "printBtn"].forEach(id => { document.getElementById(id).hidden = false; });
+
+  fitBook();
+  fitSheets();
+  try { await Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 2500))]); } catch (e) {}
+  fitBook();
+  fitSheets();
+
+  let t = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      fitBook();
+      if (printRoot.classList.contains("is-open")) { const s = sheets.querySelector(".sheet"); if (s) fitSheets(s.offsetWidth); }
+    }, 250);
+  });
+  document.body.dataset.ready = "1";
+})();
+
+document.addEventListener("keydown", e => {
+  if (printRoot.classList.contains("is-open")) { if (e.key === "Escape") closePreview(); return; }
+  if (!C) return;
+  if (e.key === "ArrowRight") nextBtn.click();
+  if (e.key === "ArrowLeft") prevBtn.click();
+});
+
+// 試作版では申込みボタンを押してもページを開かない
+book.addEventListener("click", e => {
+  const a = e.target.closest("[data-apply]");
+  if (!a || !IS_SAMPLE) return;
+  e.preventDefault();
+  const msg = a.parentElement.querySelector(".cta-msg");
+  if (msg) msg.textContent = "試作版のため、申込みページにはつながりません";
+});
+</script>
+</body>
+</html>
