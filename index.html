@@ -110,6 +110,24 @@ button { font: inherit; }
   min-width: 0;
 }
 .book { width: 100%; }
+/* スマホで戻るときのめくり（前のページが左の綴じ目を軸にして戻ってくる） */
+.backflip { position: fixed; z-index: 50; perspective: 1400px; pointer-events: none; }
+.backflip-leaf {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  box-shadow: 0 0 24px rgba(0, 0, 0, .18);
+  animation: backflip-leaf .9s cubic-bezier(.45, .1, .3, 1) both;
+}
+.backflip-leaf > * { width: 100%; height: 100%; }
+.backflip-shade { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0, 0, 0, .25), rgba(0, 0, 0, 0) 70%); animation: backflip-shade .9s ease-out both; }
+@keyframes backflip-leaf {
+  from { transform: rotateY(-88deg); filter: brightness(.8); }
+  to   { transform: rotateY(0deg); filter: brightness(1); }
+}
+@keyframes backflip-shade { from { opacity: 0; } 40% { opacity: 1; } to { opacity: 0; } }
 .book .page {
   background: var(--paper);
   box-shadow: inset 0 0 0 1px var(--rule);
@@ -1136,6 +1154,37 @@ function updateUi(idx) {
   statsShown = seeStats;
 }
 
+let backFlipping = false;
+function flipBackPortrait() {
+  const i = flip.getCurrentPageIndex();
+  if (i < 1 || backFlipping) return;
+  const pages = book.querySelectorAll(".page");
+  const now = [...pages].find(el => el.offsetParent !== null && el.getBoundingClientRect().width > 0 && getComputedStyle(el).display !== "none" && el.style.zIndex !== "");
+  const box = (now || book).getBoundingClientRect();
+  const src = pages[i - 1] && pages[i - 1].firstElementChild;
+  if (reduceMotion || !src || !box.width) { flip.turnToPrevPage(); return; }
+  backFlipping = true;
+  const stage = document.createElement("div");
+  stage.className = "backflip";
+  Object.assign(stage.style, { left: box.left + "px", top: box.top + "px", width: box.width + "px", height: box.height + "px" });
+  const leaf = document.createElement("div");
+  leaf.className = "backflip-leaf";
+  leaf.appendChild(src.cloneNode(true));
+  const shade = document.createElement("div");
+  shade.className = "backflip-shade";
+  stage.append(shade, leaf);
+  document.body.appendChild(stage);
+  const done = () => {
+    if (!backFlipping) return;
+    backFlipping = false;
+    flip.turnToPage(i - 1);
+    updateUi(i - 1);
+    requestAnimationFrame(() => stage.remove());
+  };
+  leaf.addEventListener("animationend", done, { once: true });
+  setTimeout(done, 1200);   // 念のため
+}
+
 function startBook() {
   book.innerHTML = PAGES.map((p, i) =>
     `<div class="page"${p.hard ? ' data-density="hard"' : ""}>${pageHtml(i, false)}</div>`).join("");
@@ -1149,6 +1198,9 @@ function startBook() {
     flip.loadFromHTML(book.querySelectorAll(".page"));
     flip.on("flip", e => updateUi(e.data));
     flip.on("changeOrientation", () => { updateUi(flip.getCurrentPageIndex()); fitBook(); });
+    // スマホ（1ページ表示）で戻るときは、前のページが左からめくれて重なる動きにする
+    const libPrev = flip.flipPrev.bind(flip);
+    flip.flipPrev = corner => (flip.getOrientation() === "portrait" ? flipBackPortrait() : libPrev(corner));
     prevBtn.addEventListener("click", () => flip.flipPrev());
     nextBtn.addEventListener("click", () => flip.flipNext());
   } else {
