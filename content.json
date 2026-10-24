@@ -135,11 +135,11 @@
     "details": [
       {
         "k": "おすすめ",
-        "v": "働くイメージをもっと具体的にしたい人"
+        "v": "：働くイメージをもっと具体的にしたい人"
       },
       {
         "k": "内　　容",
-        "v": "仕事体験ワーク／先輩社員との座談会"
+        "v": "：仕事体験ワーク／先輩社員との座談会"
       }
     ],
     "button": "詳細はマイナビをチェック！",
@@ -166,12 +166,12 @@
   },
   "photos": {
     "cover": "images/cover.jpg?v=193678fb",
-    "work": "images/work.jpg?v=2f3beb80",
+    "work": "images/work.jpg?v=6f6d9594",
     "numbers": "images/numbers.jpg?v=b1d0c503",
     "senpai": "images/senpai.jpg?v=5dc28bba",
     "logo": "images/logo.jpg?v=c6da6977"
   },
-  "updatedAt": "2026-10-24T11:52:26.855Z",
+  "updatedAt": "2026-10-24T12:02:08.889Z",
   "_sheet": {
     "company": "三澤会計グループ",
     "common.label": "採用デジタルパンフレット",
@@ -247,9 +247,9 @@
     "intern.title": "仕事体験で、\nもっとくわしく。",
     "intern.lead": "1日（対面開催）か半日（Web開催）で、\n会計事務所の仕事を体験できます。",
     "intern.details.0.k": "おすすめ",
-    "intern.details.0.v": "働くイメージをもっと具体的にしたい人",
+    "intern.details.0.v": "：働くイメージをもっと具体的にしたい人",
     "intern.details.1.k": "内　　容",
-    "intern.details.1.v": "仕事体験ワーク／先輩社員との座談会",
+    "intern.details.1.v": "：仕事体験ワーク／先輩社員との座談会",
     "intern.details.2.k": "",
     "intern.details.2.v": "",
     "intern.button": "詳細はマイナビをチェック！",
