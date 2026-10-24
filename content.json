@@ -121,7 +121,7 @@
         "v": "会計事務所って何をしているの？と気になる人"
       },
       {
-        "k": "内容",
+        "k": "内　　容",
         "v": "会社・仕事内容を知る／オンライン社内ツアー"
       }
     ],
@@ -138,7 +138,7 @@
         "v": "働くイメージをもっと具体的にしたい人"
       },
       {
-        "k": "内容",
+        "k": "内　　容",
         "v": "仕事体験ワーク／先輩社員との座談会"
       }
     ],
@@ -159,7 +159,7 @@
         "v": "〒392-0022 長野県諏訪市高島3丁目1201-90"
       },
       {
-        "k": "T　E　L",
+        "k": "T　 E 　L",
         "v": "0266-52-5544"
       }
     ]
@@ -171,7 +171,7 @@
     "senpai": "images/senpai.jpg?v=5dc28bba",
     "logo": "images/logo.jpg?v=c6da6977"
   },
-  "updatedAt": "2026-10-24T10:18:55.795Z",
+  "updatedAt": "2026-10-24T10:32:03.566Z",
   "_sheet": {
     "company": "三澤会計グループ",
     "common.label": "採用デジタルパンフレット",
@@ -237,7 +237,7 @@
     "open.lead": "まずはWebで1時間、気軽にのぞいてみてください。",
     "open.details.0.k": "おすすめ",
     "open.details.0.v": "会計事務所って何をしているの？と気になる人",
-    "open.details.1.k": "内容",
+    "open.details.1.k": "内　　容",
     "open.details.1.v": "会社・仕事内容を知る／オンライン社内ツアー",
     "open.details.2.k": "",
     "open.details.2.v": "",
@@ -248,7 +248,7 @@
     "intern.lead": "1日（対面開催）か半日（Web開催）で、\n会計事務所の仕事を体験できます。",
     "intern.details.0.k": "おすすめ",
     "intern.details.0.v": "働くイメージをもっと具体的にしたい人",
-    "intern.details.1.k": "内容",
+    "intern.details.1.k": "内　　容",
     "intern.details.1.v": "仕事体験ワーク／先輩社員との座談会",
     "intern.details.2.k": "",
     "intern.details.2.v": "",
@@ -261,7 +261,7 @@
     "back.contact.0.v": "細井・松澤",
     "back.contact.1.k": "住　　所",
     "back.contact.1.v": "〒392-0022 長野県諏訪市高島3丁目1201-90",
-    "back.contact.2.k": "T　E　L",
+    "back.contact.2.k": "T　 E 　L",
     "back.contact.2.v": "0266-52-5544"
   }
 }
