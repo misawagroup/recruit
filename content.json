@@ -13,7 +13,8 @@
     "en2": "THE",
     "en3": "NUMBERS.",
     "message": "数字の先にある、\n会社の未来を支える。",
-    "sub": "会計事務所のしごと、少しだけお伝えします。"
+    "nameColor": "",
+    "sub": ""
   },
   "work": {
     "en": "WORK",
@@ -146,6 +147,7 @@
   },
   "back": {
     "script": "See you soon.",
+    "webUrl": "https://misawakaikei.jp/recruit/",
     "desc": "ＡＩ時代に、寄り添う体温を。",
     "contact": [
       {
@@ -160,8 +162,7 @@
         "k": "T　E　L",
         "v": "0266-52-5544"
       }
-    ],
-    "webUrl": "https://misawagroup.github.io/recruit/"
+    ]
   },
   "photos": {
     "cover": "images/cover.jpg?v=3d8e82ef",
@@ -170,7 +171,7 @@
     "senpai": "images/senpai.jpg?v=5dc28bba",
     "logo": "images/logo.jpg?v=c6da6977"
   },
-  "updatedAt": "2026-10-24T07:23:54.621Z",
+  "updatedAt": "2026-10-24T07:33:55.627Z",
   "_sheet": {
     "company": "三澤会計グループ",
     "common.label": "採用デジタルパンフレット",
@@ -183,7 +184,8 @@
     "cover.en2": "THE",
     "cover.en3": "NUMBERS.",
     "cover.message": "数字の先にある、\n会社の未来を支える。",
-    "cover.sub": "会計事務所のしごと、少しだけお伝えします。",
+    "cover.nameColor": "",
+    "cover.sub": "",
     "work.en": "WORK",
     "work.label": "しごと",
     "work.title": "「数字」より、\n「人」と向き合う仕事。",
@@ -253,6 +255,7 @@
     "intern.button": "詳細はマイナビをチェック！",
     "intern.applyUrl": "https://job.mynavi.jp/28/pc/corpinfo/displaySeminar/index?optNo=xbT1YC&corpId=91533",
     "back.script": "See you soon.",
+    "back.webUrl": "https://misawakaikei.jp/recruit/",
     "back.desc": "ＡＩ時代に、寄り添う体温を。",
     "back.contact.0.k": "採用担当",
     "back.contact.0.v": "細井・松澤",
