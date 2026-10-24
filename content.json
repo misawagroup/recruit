@@ -24,7 +24,7 @@
     "items": [
       {
         "k": "みつめる",
-        "v": "数字の動きからその会社の「いま」を見つめ、社長とこれからを話します。"
+        "v": "数字の動きからその会社の「いま」を見つめ、社長と「これから」を話します。"
       },
       {
         "k": "ささえる",
@@ -39,7 +39,7 @@
   "numbers": {
     "en": "DATA",
     "label": "数字",
-    "title": "長く、働き続けられる\n場所です。",
+    "title": "この数字の先に、\nあなたの十年後がある。",
     "items": [
       {
         "value": "100",
@@ -69,19 +69,25 @@
         "k": "資格手当"
       },
       {
+        "k": "住宅・家賃補助"
+      },
+      {
         "k": "研修費の会社負担"
       },
       {
-        "k": "試験休暇制度あり"
-      },
-      {
-        "k": "住宅手当"
+        "k": "資格取得支援"
       },
       {
         "k": "ワークウェア支給"
       },
       {
         "k": "ジム利用料の補助"
+      },
+      {
+        "k": "置き型社食"
+      },
+      {
+        "k": "社内ドリンク制度"
       }
     ]
   },
@@ -111,8 +117,8 @@
     "lead": "まずはWebで1時間、気軽にのぞいてみてください。",
     "details": [
       {
-        "k": "日程",
-        "v": "マイナビを確認してください"
+        "k": "おすすめ",
+        "v": "会計事務所って何をしているの？と気になる人"
       },
       {
         "k": "内容",
@@ -125,11 +131,11 @@
   "intern": {
     "step": "STEP 2",
     "title": "仕事体験で、\nもっとくわしく。",
-    "lead": "1日（対面）か半日（Web）で、会計事務所の仕事を体験できます。",
+    "lead": "1日（対面開催）か半日（Web開催）で、\n会計事務所の仕事を体験できます。",
     "details": [
       {
-        "k": "日程",
-        "v": "マイナビを確認してください"
+        "k": "おすすめ",
+        "v": "働くイメージをもっと具体的にしたい人"
       },
       {
         "k": "内容",
@@ -165,7 +171,7 @@
     "senpai": "images/senpai.jpg?v=5dc28bba",
     "logo": "images/logo.jpg?v=c6da6977"
   },
-  "updatedAt": "2026-10-24T09:51:45.117Z",
+  "updatedAt": "2026-10-24T10:18:55.795Z",
   "_sheet": {
     "company": "三澤会計グループ",
     "common.label": "採用デジタルパンフレット",
@@ -185,14 +191,14 @@
     "work.title": "「数字」より、\n「人」と向き合う仕事。",
     "work.lead": "1日の半分は、誰かと話しています。\n社長や経理の方と、数字の意味を一緒に考える仕事です。",
     "work.items.0.k": "みつめる",
-    "work.items.0.v": "数字の動きからその会社の「いま」を見つめ、社長とこれからを話します。",
+    "work.items.0.v": "数字の動きからその会社の「いま」を見つめ、社長と「これから」を話します。",
     "work.items.1.k": "ささえる",
     "work.items.1.v": "1年の歩みを決算書にまとめ、税金を計算します。\nチームで確かめ、会社の大切な節目を支えます。",
     "work.items.2.k": "わたしがついてる",
     "work.items.2.v": "社長の悩みは数字だけではありません。\n身近な相談相手として、仲間と一緒に答えを探します。",
     "numbers.en": "DATA",
     "numbers.label": "数字",
-    "numbers.title": "長く、働き続けられる\n場所です。",
+    "numbers.title": "この数字の先に、\nあなたの十年後がある。",
     "numbers.items.0.value": "100",
     "numbers.items.0.unit": "%",
     "numbers.items.0.k": "新卒の3年以内定着率",
@@ -208,13 +214,13 @@
     "numbers.note": "※2026年4月時点",
     "numbers.perksTitle": "福利厚生（一部）",
     "numbers.perks.0.k": "資格手当",
-    "numbers.perks.1.k": "研修費の会社負担",
-    "numbers.perks.2.k": "試験休暇制度あり",
-    "numbers.perks.3.k": "住宅手当",
+    "numbers.perks.1.k": "住宅・家賃補助",
+    "numbers.perks.2.k": "研修費の会社負担",
+    "numbers.perks.3.k": "資格取得支援",
     "numbers.perks.4.k": "ワークウェア支給",
     "numbers.perks.5.k": "ジム利用料の補助",
-    "numbers.perks.6.k": "",
-    "numbers.perks.7.k": "",
+    "numbers.perks.6.k": "置き型社食",
+    "numbers.perks.7.k": "社内ドリンク制度",
     "senpai.en": "PEOPLE",
     "senpai.label": "先輩社員",
     "senpai.name": "小池 大珠",
@@ -229,8 +235,8 @@
     "open.step": "STEP 1",
     "open.title": "続きは、\nオープンカンパニーで。",
     "open.lead": "まずはWebで1時間、気軽にのぞいてみてください。",
-    "open.details.0.k": "日程",
-    "open.details.0.v": "マイナビを確認してください",
+    "open.details.0.k": "おすすめ",
+    "open.details.0.v": "会計事務所って何をしているの？と気になる人",
     "open.details.1.k": "内容",
     "open.details.1.v": "会社・仕事内容を知る／オンライン社内ツアー",
     "open.details.2.k": "",
@@ -239,9 +245,9 @@
     "open.applyUrl": "https://job.mynavi.jp/28/pc/corpinfo/displaySeminar/index?optNo=JopBUC&corpId=91533",
     "intern.step": "STEP 2",
     "intern.title": "仕事体験で、\nもっとくわしく。",
-    "intern.lead": "1日（対面）か半日（Web）で、会計事務所の仕事を体験できます。",
-    "intern.details.0.k": "日程",
-    "intern.details.0.v": "マイナビを確認してください",
+    "intern.lead": "1日（対面開催）か半日（Web開催）で、\n会計事務所の仕事を体験できます。",
+    "intern.details.0.k": "おすすめ",
+    "intern.details.0.v": "働くイメージをもっと具体的にしたい人",
     "intern.details.1.k": "内容",
     "intern.details.1.v": "仕事体験ワーク／先輩社員との座談会",
     "intern.details.2.k": "",
