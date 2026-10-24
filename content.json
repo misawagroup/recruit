@@ -118,11 +118,11 @@
     "details": [
       {
         "k": "おすすめ",
-        "v": "会計事務所って何をしているの？と気になる人"
+        "v": "：会計事務所って何をしているの？と気になる人"
       },
       {
         "k": "内　　容",
-        "v": "会社・仕事内容を知る／オンライン社内ツアー"
+        "v": "：会社・仕事内容を知る／オンライン社内ツアー"
       }
     ],
     "button": "詳細はマイナビをチェック！",
@@ -166,12 +166,12 @@
   },
   "photos": {
     "cover": "images/cover.jpg?v=193678fb",
-    "work": "images/work.jpg?v=e76f42ba",
+    "work": "images/work.jpg?v=2f3beb80",
     "numbers": "images/numbers.jpg?v=b1d0c503",
     "senpai": "images/senpai.jpg?v=5dc28bba",
     "logo": "images/logo.jpg?v=c6da6977"
   },
-  "updatedAt": "2026-10-24T11:24:09.609Z",
+  "updatedAt": "2026-10-24T11:52:26.855Z",
   "_sheet": {
     "company": "三澤会計グループ",
     "common.label": "採用デジタルパンフレット",
@@ -236,9 +236,9 @@
     "open.title": "続きは、\nオープンカンパニーで。",
     "open.lead": "まずはWebで1時間、気軽にのぞいてみてください。",
     "open.details.0.k": "おすすめ",
-    "open.details.0.v": "会計事務所って何をしているの？と気になる人",
+    "open.details.0.v": "：会計事務所って何をしているの？と気になる人",
     "open.details.1.k": "内　　容",
-    "open.details.1.v": "会社・仕事内容を知る／オンライン社内ツアー",
+    "open.details.1.v": "：会社・仕事内容を知る／オンライン社内ツアー",
     "open.details.2.k": "",
     "open.details.2.v": "",
     "open.button": "詳細はマイナビをチェック！",
