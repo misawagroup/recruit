@@ -647,8 +647,11 @@ button { font: inherit; }
 .bk-script { font-family: var(--f-script); font-size: max(24px, 7cqw); line-height: 1; color: var(--lime); }
 .bk-name { margin: 0; font-weight: 900; font-size: calc(max(26px, 6.4cqw) * var(--fit)); letter-spacing: .12em; line-height: 1.3; }
 .bk-desc { margin: 0; font-size: var(--t-body); line-height: 1.7; }
+/* 筆記体〜紹介文の3行は、上の英字と下の連絡先のちょうど真ん中に置く */
+.bk-main > :first-child { margin-top: auto; }
+.bk-desc { margin-bottom: auto !important; }
 /* 連絡先は白い線のすぐ上に寄せる */
-.bk-contact { margin: auto 0 max(4px, 1.2cqw); padding-top: max(8px, 2cqw); display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px max(12px, 2.6cqw); font-size: var(--t-body); }
+.bk-contact { margin: 0 0 max(4px, 1.2cqw); padding-top: max(8px, 2cqw); display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px max(12px, 2.6cqw); font-size: var(--t-body); }
 .bk-contact dt { font-family: var(--f-fig); font-weight: 600; letter-spacing: .1em; color: var(--lime); }
 .bk-contact dd { margin: 0; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .bk-web { position: relative; display: flex; align-items: center; gap: max(12px, 3cqw); padding-top: max(10px, 2.4cqw); border-top: 1px solid var(--green-soft); }
