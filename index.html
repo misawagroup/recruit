@@ -391,7 +391,7 @@ button { font: inherit; }
 .cv-foot-text { display: flex; flex-direction: column; gap: max(3px, .8cqw); min-width: 0; }
 .cv-foot:not(.has-logo) .cv-foot-text { align-items: center; text-align: center; }
 .cv-sub { margin: 0; font-size: var(--t-small); font-weight: 500; letter-spacing: .08em; color: var(--ink-soft); }
-.cv-name { margin: 0; font-weight: 900; font-size: calc(max(20px, 4.6cqw) * var(--fit)); letter-spacing: .14em; color: var(--green-deep); }
+.cv-name { margin: 0; font-weight: 900; font-size: calc(max(20px, 4.6cqw) * var(--fit)); letter-spacing: .14em; color: var(--name-color, var(--green-deep)); }
 
 /* --- しごと（右上の写真、「13のこと」風の番号リスト） --- */
 /* 右上の大きな写真：見出しの後ろに入り、左と下はページの色にとけこむ */
@@ -1184,6 +1184,47 @@ function startPrint() {
   window.addEventListener("beforeprint", () => fitSheets());
 }
 
+// ─── 表紙の事務所名の色：シートで決めた色、なければロゴマークの色に合わせる ───
+function logoColor(src) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const n = 48;
+        const cv = document.createElement("canvas");
+        cv.width = cv.height = n;
+        const ctx = cv.getContext("2d");
+        ctx.drawImage(img, 0, 0, n, n);
+        const d = ctx.getImageData(0, 0, n, n).data;
+        const count = {};
+        for (let i = 0; i < d.length; i += 4) {
+          const [r, g, b, a] = [d[i], d[i + 1], d[i + 2], d[i + 3]];
+          if (a < 200) continue;                                   // 透明なところ
+          const max = Math.max(r, g, b), min = Math.min(r, g, b);
+          if (max > 235 && min > 215) continue;                    // 白っぽいところ
+          if (max - min < 40) continue;                            // 灰色・黒っぽいところ
+          const key = [r >> 4, g >> 4, b >> 4].join(",");
+          const c = count[key] || (count[key] = { n: 0, r: 0, g: 0, b: 0 });
+          c.n++; c.r += r; c.g += g; c.b += b;
+        }
+        const best = Object.values(count).sort((a, b) => b.n - a.n)[0];
+        if (!best || best.n < 20) return resolve("");
+        const [r, g, b] = [best.r, best.g, best.b].map(v => Math.round(v / best.n));
+        // 白い帯の上で読みにくい明るい色は使わない
+        if (0.2126 * r + 0.7152 * g + 0.0722 * b > 190) return resolve("");
+        resolve(`rgb(${r}, ${g}, ${b})`);
+      } catch (e) { resolve(""); }
+    };
+    img.onerror = () => resolve("");
+    img.src = src;
+  });
+}
+async function applyNameColor() {
+  const set = String((C.cover && C.cover.nameColor) || "").trim();
+  const color = /^#[0-9a-fA-F]{6}$/.test(set) ? set : ((C.photos || {}).logo ? await logoColor(C.photos.logo) : "");
+  if (color) document.documentElement.style.setProperty("--name-color", color);
+}
+
 // ─── 起動 ───
 async function loadContent() {
   const res = await fetch(CONTENT_URL, { cache: "no-cache" });
@@ -1203,6 +1244,7 @@ function showError() {
   document.getElementById("brand").textContent = `${C.company}　${L.label}`;
   document.getElementById("sampleNote").hidden = !IS_SAMPLE;
 
+  applyNameColor();
   startBook();
   startPrint();
   ["controls", "hint", "printBtn"].forEach(id => { document.getElementById(id).hidden = false; });
