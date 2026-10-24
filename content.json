@@ -1,12 +1,23 @@
 {
   "company": "三澤会計グループ",
+  "common": {
+    "label": "採用デジタルパンフレット",
+    "webNote": "最新の内容はマイナビでご覧いただけます",
+    "qrNote": "QRコードを読み取ると、マイナビの三澤会計グループページが開きます。"
+  },
   "cover": {
     "year": "2028",
+    "tag": "RECRUIT GUIDE",
+    "script": "You know...",
+    "en1": "BEYOND",
+    "en2": "THE",
+    "en3": "NUMBERS.",
     "message": "数字の先にある、\n会社の未来を支える。",
-    "stamp": "予告編",
-    "sub": "会計事務所のしごと、少しだけ見せます。"
+    "sub": "会計事務所のしごと、少しだけお伝えします。"
   },
   "work": {
+    "en": "WORK",
+    "label": "しごと",
     "title": "「数字」より、\n「人」と向き合う仕事。",
     "lead": "1日の半分は、誰かと話しています。社長や経理の方と、数字の意味を一緒に考える仕事です。",
     "items": [
@@ -25,6 +36,8 @@
     ]
   },
   "numbers": {
+    "en": "DATA",
+    "label": "数字",
     "title": "長く、働き続けられる\n場所です。",
     "items": [
       {
@@ -48,9 +61,38 @@
         "k": "育休の取得率（男女とも）"
       }
     ],
-    "note": "※2026年4月時点"
+    "note": "※2026年4月時点",
+    "perksTitle": "福利厚生（一部）",
+    "perks": [
+      {
+        "k": "資格手当"
+      },
+      {
+        "k": "住宅手当"
+      },
+      {
+        "k": "研修費の会社負担"
+      },
+      {
+        "k": "テレワーク可"
+      },
+      {
+        "k": "時短勤務可"
+      },
+      {
+        "k": "退職金制度"
+      },
+      {
+        "k": "フリードリンク"
+      },
+      {
+        "k": "ジム利用料の補助"
+      }
+    ]
   },
   "senpai": {
+    "en": "PEOPLE",
+    "label": "先輩社員",
     "name": "Kさん",
     "meta": "監査業務部 入社1年目",
     "quote": "わからないことを「わからない」と言える職場。\nだから1年目でも、安心してお客さまの前に立てています。",
@@ -67,24 +109,19 @@
     "photo": "images/senpai.jpg?v=5dc28bba"
   },
   "open": {
+    "en": "EVENT",
+    "label": "オープンカンパニー・仕事体験",
+    "step": "STEP 1",
     "title": "続きは、\nオープンカンパニーで。",
-    "lead": "まずはWebで1時間、気軽にのぞいてみてください。\n仕事内容や働く環境をお伝えいたします！",
+    "lead": "まずはWebで1時間、気軽にのぞいてみてください。",
     "details": [
       {
         "k": "日程",
         "v": "マイナビを確認してください"
       },
       {
-        "k": "もっと！",
-        "v": "さらに知りたい人は、仕事体験へ。"
-      },
-      {
-        "k": "仕事体験",
-        "v": "仕事体験ワーク／先輩社員との座談会"
-      },
-      {
-        "k": "日程",
-        "v": "1日（対面）／半日（Web）"
+        "k": "内容",
+        "v": "会社・仕事内容を知る／オンライン社内ツアー"
       },
       {
         "k": "対象",
@@ -94,7 +131,29 @@
     "button": "詳細はマイナビをチェック！",
     "applyUrl": "https://job.mynavi.jp/28/pc/search/corp91533/outline.html"
   },
+  "intern": {
+    "step": "STEP 2",
+    "title": "仕事体験で、\nもっとくわしく。",
+    "lead": "1日（対面）か半日（Web）で、会計事務所の仕事を体験できます。",
+    "details": [
+      {
+        "k": "日程",
+        "v": "マイナビを確認してください"
+      },
+      {
+        "k": "内容",
+        "v": "仕事体験ワーク／先輩社員との座談会"
+      },
+      {
+        "k": "対象",
+        "v": "2028年3月卒業予定の方"
+      }
+    ],
+    "button": "詳細はマイナビをチェック！",
+    "applyUrl": ""
+  },
   "back": {
+    "script": "See you soon.",
     "desc": "ＡＩ時代に、寄り添う体温を。",
     "contact": [
       {
@@ -112,13 +171,29 @@
     ],
     "webUrl": "https://misawagroup.github.io/recruit/"
   },
-  "updatedAt": "2026-10-24T03:54:22.970Z",
+  "photos": {
+    "cover": "images/cover.jpg?v=3d8e82ef",
+    "work": "images/work.jpg?v=cb5786c2",
+    "numbers": "images/numbers.jpg?v=9869a5e3",
+    "senpai": "images/senpai.jpg?v=5dc28bba",
+    "logo": "images/logo.jpg?v=c6da6977"
+  },
+  "updatedAt": "2026-10-24T07:01:40.767Z",
   "_sheet": {
     "company": "三澤会計グループ",
+    "common.label": "採用デジタルパンフレット",
+    "common.webNote": "最新の内容はマイナビでご覧いただけます",
+    "common.qrNote": "QRコードを読み取ると、マイナビの三澤会計グループページが開きます。",
     "cover.year": "2028",
+    "cover.tag": "RECRUIT GUIDE",
+    "cover.script": "You know...",
+    "cover.en1": "BEYOND",
+    "cover.en2": "THE",
+    "cover.en3": "NUMBERS.",
     "cover.message": "数字の先にある、\n会社の未来を支える。",
-    "cover.stamp": "予告編",
-    "cover.sub": "会計事務所のしごと、少しだけ見せます。",
+    "cover.sub": "会計事務所のしごと、少しだけお伝えします。",
+    "work.en": "WORK",
+    "work.label": "しごと",
     "work.title": "「数字」より、\n「人」と向き合う仕事。",
     "work.lead": "1日の半分は、誰かと話しています。社長や経理の方と、数字の意味を一緒に考える仕事です。",
     "work.items.0.k": "みつめる",
@@ -127,6 +202,8 @@
     "work.items.1.v": "1年間の成績を決算書にまとめ、税金を計算します。みんなでチェックして仕上げます。",
     "work.items.2.k": "わたしがついてる",
     "work.items.2.v": "補助金や事業の引継ぎなど、社長の悩みに、グループの専門家と協力して答えます。",
+    "numbers.en": "DATA",
+    "numbers.label": "数字",
     "numbers.title": "長く、働き続けられる\n場所です。",
     "numbers.items.0.value": "100",
     "numbers.items.0.unit": "%",
@@ -141,6 +218,17 @@
     "numbers.items.3.unit": "%",
     "numbers.items.3.k": "育休の取得率（男女とも）",
     "numbers.note": "※2026年4月時点",
+    "numbers.perksTitle": "福利厚生（一部）",
+    "numbers.perks.0.k": "資格手当",
+    "numbers.perks.1.k": "住宅手当",
+    "numbers.perks.2.k": "研修費の会社負担",
+    "numbers.perks.3.k": "テレワーク可",
+    "numbers.perks.4.k": "時短勤務可",
+    "numbers.perks.5.k": "退職金制度",
+    "numbers.perks.6.k": "フリードリンク",
+    "numbers.perks.7.k": "ジム利用料の補助",
+    "senpai.en": "PEOPLE",
+    "senpai.label": "先輩社員",
     "senpai.name": "Kさん",
     "senpai.meta": "監査業務部 入社1年目",
     "senpai.quote": "わからないことを「わからない」と言える職場。\nだから1年目でも、安心してお客さまの前に立てています。",
@@ -148,20 +236,31 @@
     "senpai.qa.0.a": "「人と話す仕事」だったこと。数字の向こうに、会社や社長の想いがあると知りました。",
     "senpai.qa.1.q": "学生のみなさんへ",
     "senpai.qa.1.a": "少しでも「気になる」と思ったら、それで十分です。\n会ってお話しできるのを楽しみにしています。",
+    "open.en": "EVENT",
+    "open.label": "オープンカンパニー・仕事体験",
+    "open.step": "STEP 1",
     "open.title": "続きは、\nオープンカンパニーで。",
-    "open.lead": "まずはWebで1時間、気軽にのぞいてみてください。\n仕事内容や働く環境をお伝えいたします！",
+    "open.lead": "まずはWebで1時間、気軽にのぞいてみてください。",
     "open.details.0.k": "日程",
     "open.details.0.v": "マイナビを確認してください",
-    "open.details.1.k": "もっと！",
-    "open.details.1.v": "さらに知りたい人は、仕事体験へ。",
-    "open.details.2.k": "仕事体験",
-    "open.details.2.v": "仕事体験ワーク／先輩社員との座談会",
-    "open.details.3.k": "日程",
-    "open.details.3.v": "1日（対面）／半日（Web）",
-    "open.details.4.k": "対象",
-    "open.details.4.v": "2028年3月卒業予定の方",
+    "open.details.1.k": "内容",
+    "open.details.1.v": "会社・仕事内容を知る／オンライン社内ツアー",
+    "open.details.2.k": "対象",
+    "open.details.2.v": "2028年3月卒業予定の方",
     "open.button": "詳細はマイナビをチェック！",
     "open.applyUrl": "https://job.mynavi.jp/28/pc/search/corp91533/outline.html",
+    "intern.step": "STEP 2",
+    "intern.title": "仕事体験で、\nもっとくわしく。",
+    "intern.lead": "1日（対面）か半日（Web）で、会計事務所の仕事を体験できます。",
+    "intern.details.0.k": "日程",
+    "intern.details.0.v": "マイナビを確認してください",
+    "intern.details.1.k": "内容",
+    "intern.details.1.v": "仕事体験ワーク／先輩社員との座談会",
+    "intern.details.2.k": "対象",
+    "intern.details.2.v": "2028年3月卒業予定の方",
+    "intern.button": "詳細はマイナビをチェック！",
+    "intern.applyUrl": "",
+    "back.script": "See you soon.",
     "back.desc": "ＡＩ時代に、寄り添う体温を。",
     "back.contact.0.k": "採用担当",
     "back.contact.0.v": "細井・松澤",
