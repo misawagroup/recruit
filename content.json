@@ -59,7 +59,7 @@
       {
         "value": "100",
         "unit": "%",
-        "k": "育休の取得率"
+        "k": "パパママ育休の取得率"
       }
     ],
     "note": "※2026年4月時点",
@@ -171,7 +171,7 @@
     "senpai": "images/senpai.jpg?v=5dc28bba",
     "logo": "images/logo.jpg?v=c6da6977"
   },
-  "updatedAt": "2026-10-24T11:11:42.798Z",
+  "updatedAt": "2026-10-24T11:12:15.324Z",
   "_sheet": {
     "company": "三澤会計グループ",
     "common.label": "採用デジタルパンフレット",
@@ -210,7 +210,7 @@
     "numbers.items.2.k": "直近5年平均 ボーナス",
     "numbers.items.3.value": "100",
     "numbers.items.3.unit": "%",
-    "numbers.items.3.k": "育休の取得率",
+    "numbers.items.3.k": "パパママ育休の取得率",
     "numbers.note": "※2026年4月時点",
     "numbers.perksTitle": "福利厚生（一部）",
     "numbers.perks.0.k": "資格手当",
