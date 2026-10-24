@@ -2,7 +2,7 @@
   "company": "三澤会計グループ",
   "common": {
     "label": "採用デジタルパンフレット",
-    "webNote": "最新の内容はマイナビでご覧いただけます",
+    "webNote": "採用サイトを見に来てくださいね",
     "qrNote": "QRコードを読み取ると、マイナビの三澤会計グループページが開きます。"
   },
   "cover": {
@@ -53,12 +53,12 @@
       {
         "value": "4.5",
         "unit": "ヶ月",
-        "k": "ボーナス（直近5年平均）"
+        "k": "ボーナス\n（直近5年平均）"
       },
       {
         "value": "100",
         "unit": "%",
-        "k": "育休の取得率（男女とも）"
+        "k": "育休の取得率\n（男女とも）"
       }
     ],
     "note": "※2026年4月時点",
@@ -93,9 +93,9 @@
   "senpai": {
     "en": "PEOPLE",
     "label": "先輩社員",
-    "name": "Kさん",
-    "meta": "監査業務部 入社1年目",
-    "quote": "わからないことを「わからない」と言える職場。\nだから1年目でも、安心してお客さまの前に立てています。",
+    "name": "小池さん",
+    "meta": "監査業務部 入社1年目（2026年新卒入社）",
+    "quote": "わからないことを\n「わからない」と言える職場。\nだから１年目でも、安心して\nお客さまの前に立てています。",
     "qa": [
       {
         "q": "いちばん意外だったことは？",
@@ -122,14 +122,10 @@
       {
         "k": "内容",
         "v": "会社・仕事内容を知る／オンライン社内ツアー"
-      },
-      {
-        "k": "対象",
-        "v": "2028年3月卒業予定の方"
       }
     ],
     "button": "詳細はマイナビをチェック！",
-    "applyUrl": "https://job.mynavi.jp/28/pc/search/corp91533/outline.html"
+    "applyUrl": "https://job.mynavi.jp/28/pc/corpinfo/displaySeminar/index?optNo=JopBUC&corpId=91533"
   },
   "intern": {
     "step": "STEP 2",
@@ -143,14 +139,10 @@
       {
         "k": "内容",
         "v": "仕事体験ワーク／先輩社員との座談会"
-      },
-      {
-        "k": "対象",
-        "v": "2028年3月卒業予定の方"
       }
     ],
     "button": "詳細はマイナビをチェック！",
-    "applyUrl": ""
+    "applyUrl": "https://job.mynavi.jp/28/pc/corpinfo/displaySeminar/index?optNo=xbT1YC&corpId=91533"
   },
   "back": {
     "script": "See you soon.",
@@ -161,11 +153,11 @@
         "v": "細井・松澤"
       },
       {
-        "k": "住所",
+        "k": "住　　所",
         "v": "〒392-0022 長野県諏訪市高島3丁目1201-90"
       },
       {
-        "k": "TEL",
+        "k": "T　E　L",
         "v": "0266-52-5544"
       }
     ],
@@ -178,11 +170,11 @@
     "senpai": "images/senpai.jpg?v=5dc28bba",
     "logo": "images/logo.jpg?v=c6da6977"
   },
-  "updatedAt": "2026-10-24T07:03:32.231Z",
+  "updatedAt": "2026-10-24T07:23:54.621Z",
   "_sheet": {
     "company": "三澤会計グループ",
     "common.label": "採用デジタルパンフレット",
-    "common.webNote": "最新の内容はマイナビでご覧いただけます",
+    "common.webNote": "採用サイトを見に来てくださいね",
     "common.qrNote": "QRコードを読み取ると、マイナビの三澤会計グループページが開きます。",
     "cover.year": "2028",
     "cover.tag": "RECRUIT GUIDE",
@@ -213,10 +205,10 @@
     "numbers.items.1.k": "平均勤続年数",
     "numbers.items.2.value": "4.5",
     "numbers.items.2.unit": "ヶ月",
-    "numbers.items.2.k": "ボーナス（直近5年平均）",
+    "numbers.items.2.k": "ボーナス\n（直近5年平均）",
     "numbers.items.3.value": "100",
     "numbers.items.3.unit": "%",
-    "numbers.items.3.k": "育休の取得率（男女とも）",
+    "numbers.items.3.k": "育休の取得率\n（男女とも）",
     "numbers.note": "※2026年4月時点",
     "numbers.perksTitle": "福利厚生（一部）",
     "numbers.perks.0.k": "資格手当",
@@ -229,9 +221,9 @@
     "numbers.perks.7.k": "ジム利用料の補助",
     "senpai.en": "PEOPLE",
     "senpai.label": "先輩社員",
-    "senpai.name": "Kさん",
-    "senpai.meta": "監査業務部 入社1年目",
-    "senpai.quote": "わからないことを「わからない」と言える職場。\nだから1年目でも、安心してお客さまの前に立てています。",
+    "senpai.name": "小池さん",
+    "senpai.meta": "監査業務部 入社1年目（2026年新卒入社）",
+    "senpai.quote": "わからないことを\n「わからない」と言える職場。\nだから１年目でも、安心して\nお客さまの前に立てています。",
     "senpai.qa.0.q": "いちばん意外だったことは？",
     "senpai.qa.0.a": "「人と話す仕事」だったこと。\n数字の向こうに、会社や社長の想いがあると知りました。",
     "senpai.qa.1.q": "学生のみなさんへ",
@@ -245,10 +237,10 @@
     "open.details.0.v": "マイナビを確認してください",
     "open.details.1.k": "内容",
     "open.details.1.v": "会社・仕事内容を知る／オンライン社内ツアー",
-    "open.details.2.k": "対象",
-    "open.details.2.v": "2028年3月卒業予定の方",
+    "open.details.2.k": "",
+    "open.details.2.v": "",
     "open.button": "詳細はマイナビをチェック！",
-    "open.applyUrl": "https://job.mynavi.jp/28/pc/search/corp91533/outline.html",
+    "open.applyUrl": "https://job.mynavi.jp/28/pc/corpinfo/displaySeminar/index?optNo=JopBUC&corpId=91533",
     "intern.step": "STEP 2",
     "intern.title": "仕事体験で、\nもっとくわしく。",
     "intern.lead": "1日（対面）か半日（Web）で、会計事務所の仕事を体験できます。",
@@ -256,17 +248,17 @@
     "intern.details.0.v": "マイナビを確認してください",
     "intern.details.1.k": "内容",
     "intern.details.1.v": "仕事体験ワーク／先輩社員との座談会",
-    "intern.details.2.k": "対象",
-    "intern.details.2.v": "2028年3月卒業予定の方",
+    "intern.details.2.k": "",
+    "intern.details.2.v": "",
     "intern.button": "詳細はマイナビをチェック！",
-    "intern.applyUrl": "",
+    "intern.applyUrl": "https://job.mynavi.jp/28/pc/corpinfo/displaySeminar/index?optNo=xbT1YC&corpId=91533",
     "back.script": "See you soon.",
     "back.desc": "ＡＩ時代に、寄り添う体温を。",
     "back.contact.0.k": "採用担当",
     "back.contact.0.v": "細井・松澤",
-    "back.contact.1.k": "住所",
+    "back.contact.1.k": "住　　所",
     "back.contact.1.v": "〒392-0022 長野県諏訪市高島3丁目1201-90",
-    "back.contact.2.k": "TEL",
+    "back.contact.2.k": "T　E　L",
     "back.contact.2.v": "0266-52-5544"
   }
 }
