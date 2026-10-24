@@ -166,12 +166,12 @@
   },
   "photos": {
     "cover": "images/cover.jpg?v=193678fb",
-    "work": "",
-    "numbers": "images/numbers.jpg?v=2b6e925a",
+    "work": "images/work.jpg?v=e76f42ba",
+    "numbers": "images/numbers.jpg?v=b1d0c503",
     "senpai": "images/senpai.jpg?v=5dc28bba",
     "logo": "images/logo.jpg?v=c6da6977"
   },
-  "updatedAt": "2026-10-24T11:17:40.080Z",
+  "updatedAt": "2026-10-24T11:24:09.609Z",
   "_sheet": {
     "company": "三澤会計グループ",
     "common.label": "採用デジタルパンフレット",
