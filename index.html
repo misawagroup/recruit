@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Barlow+Condensed:wght@300;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Old+Mincho:wght@700;900&display=swap">
 <style>
-/* Layout: 一冊の本。奉優会パンフの組み方（ページごとの淡い色の紙・縦書きの見出し・細い罫線・大きな番号・白抜きの英字ロゴ）に、
-   採用サイトの緑と黄緑のマーカーを合わせる。帳簿のなごり（二重罫・はんこ・帳簿の数字）は小さく残す。台（stage）は閲覧者のテーマに追従し、ページは常に紙の色。印刷時は同じページをA4縦に1枚ずつ並べる */
+/* Layout: 一冊の本。奉優会パンフの組み方（全面写真の表紙・ページごとの淡い色の紙・縦書きの見出し・細い罫線・大きな番号・白抜きの英字ロゴ）に、
+   採用サイトの緑と黄緑のマーカーを合わせる。文字と写真はすべて content.json（更新用シート）から読み込む。台（stage）は閲覧者のテーマに追従し、ページは常に紙の色。印刷時は同じページをA4縦に1枚ずつ並べる */
 :root {
   /* 紙（ページ）— テーマに関係なく紙の色 */
   --paper: #FFFFFF;
@@ -212,15 +212,10 @@ button { font: inherit; }
 }
 .rh {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 8px;
   font-size: var(--t-small);
   color: var(--ink-soft);
   letter-spacing: .06em;
 }
-.rh b { font-family: var(--f-fig); font-weight: 600; color: var(--green-deep); letter-spacing: .14em; }
 /* 見出しの番号ラベル（「IDEA 01」のような枠） */
 .en {
   position: relative;
@@ -253,7 +248,7 @@ button { font: inherit; }
   line-height: .9;
   color: var(--green);
 }
-.en-ja { font-size: var(--t-label); font-weight: 900; line-height: 1.35; color: var(--ink); }
+.en-ja { font-size: var(--t-label); font-weight: 900; line-height: 1.35; color: var(--ink); max-width: 14em; }
 .h {
   position: relative;
   margin: 0;
@@ -288,25 +283,56 @@ button { font: inherit; }
   font-variant-numeric: tabular-nums;
 }
 .pf.is-odd { justify-content: flex-end; }
+/* 写真（共通） */
+.ph { position: relative; overflow: hidden; background: #DCE6DF; }
+.ph img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* 白抜きのロゴ風の英字（表紙・裏表紙） */
 .lockup { margin: 0; font-family: var(--f-fig); font-weight: 700; line-height: .84; color: #FFFFFF; letter-spacing: .01em; }
-.lockup span { display: block; }
-.lockup .lk-big { font-size: max(48px, 17cqw); }
-.lockup .lk-small { font-size: max(16px, 5.4cqw); line-height: 1.1; color: var(--lime); letter-spacing: .06em; padding-left: .1em; }
+.lockup span { display: block; white-space: nowrap; }
+.lockup .lk-big { font-size: calc(max(48px, 17cqw) * var(--fit)); }
+.lockup .lk-small { font-size: calc(max(16px, 5.4cqw) * var(--fit)); line-height: 1.1; color: var(--lime); letter-spacing: .06em; padding-left: .1em; }
 
-/* --- 表紙 --- */
+/* --- 表紙（右下の大きな丸に写真＋白抜きの英字＋下の白い帯） --- */
 .pg-cover { background: var(--green-deep); color: #FFFFFF; }
-.pg-cover::before,
 .pg-cover::after {
   content: "";
   position: absolute;
-  border-radius: 50%;
+  right: 54cqw;
+  top: 70cqw;
+  width: 10cqw;
   aspect-ratio: 1;
+  border-radius: 50%;
+  border: max(2px, .5cqw) solid var(--lime);
+  opacity: .9;
+  z-index: 1;
 }
-.pg-cover::before { right: -30cqw; top: 40cqw; width: 92cqw; background: var(--green); opacity: .55; }
-.pg-cover::after { left: 46cqw; top: 104cqw; width: 12cqw; border: max(2px, .5cqw) solid var(--lime); opacity: .9; }
+/* 丸と飾りの入れもの（はみ出した分は切る） */
+.cv-deco { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+/* 写真が入る丸（写真がないときは緑の丸） */
+.cv-bg {
+  position: absolute;
+  right: -26cqw;
+  top: 56cqw;
+  width: 92cqw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--green);
+  opacity: .55;
+}
+.cv-bg.has-img { opacity: 1; }
+.cv-bg img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* 写真の上でも白い文字が読めるように、少し緑をかける */
+.cv-bg.has-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(10, 60, 36, .35) 0%, rgba(10, 60, 36, .05) 40%, rgba(10, 60, 36, 0) 100%);
+}
 .pg-cover .pg-body { padding-bottom: 0; }
+.pg-cover .lockup .lk-big { font-size: calc(max(44px, 15cqw) * var(--fit)); }
+.pg-cover .cv-message { text-shadow: 0 1px 10px rgba(0, 0, 0, .25); }
 .cv-top {
   position: relative;
   display: flex;
@@ -325,7 +351,8 @@ button { font: inherit; }
   position: relative;
   min-height: 0;
 }
-.cv-en { position: absolute; left: 0; top: 0; }
+.cv-en { position: absolute; right: 0; top: 0; text-align: right; }
+.cv-en .lk-small { padding-left: 0; padding-right: .1em; }
 .cv-script {
   display: block;
   font-family: var(--f-script);
@@ -337,69 +364,54 @@ button { font: inherit; }
 }
 .cv-message {
   position: absolute;
-  right: 0;
-  bottom: max(10px, 4cqw);
+  left: 0;
+  bottom: max(10px, 3cqw);
   margin: 0;
   writing-mode: vertical-rl;
   font-family: var(--f-display);
   font-weight: 900;
-  font-size: calc(max(24px, 6.2cqw) * var(--fit));
-  line-height: 1.65;
-  letter-spacing: .14em;
+  font-size: calc(max(22px, 5.8cqw) * var(--fit));
+  line-height: 1.6;
+  letter-spacing: .08em;
   color: #FFFFFF;
 }
-.stamp {
-  position: absolute;
-  left: 2%;
-  bottom: max(12px, 6cqw);
-  width: max(58px, 15cqw);
-  aspect-ratio: 1;
-  max-width: 100%;
-  border-radius: 50%;
-  border: max(2px, .45cqw) solid var(--shu);
-  box-shadow: inset 0 0 0 max(2px, .5cqw) #FFFFFF, inset 0 0 0 max(3px, .75cqw) var(--shu);
-  background: #FFFFFF;
-  display: grid;
-  place-items: center;
-  color: var(--shu);
-  font-family: var(--f-display);
-  font-weight: 900;
-  font-size: max(14px, 3.4cqw);
-  letter-spacing: .04em;
-  transform: rotate(-9deg);
-}
-.ledger {
-  position: absolute;
-  left: 22%;
-  bottom: max(14px, 6.6cqw);
-  font-family: var(--f-fig);
-  font-weight: 500;
-  font-size: max(12px, 2.6cqw);
-  line-height: 1.35;
-  color: #FFFFFF;
-  opacity: .35;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: .04em;
-}
-.ledger .sum { border-top: 1px solid #FFFFFF; margin-top: 3px; padding-top: 2px; border-bottom: 3px double #FFFFFF; }
-/* 下の白い帯（奉優会パンフの表紙のロゴ帯） */
+/* 下の白い帯（ロゴマーク＋事務所名） */
 .cv-foot {
   position: relative;
   margin-inline: calc(var(--pad) * -1);
-  padding: max(14px, 4.4cqw) var(--pad) max(16px, 5cqw);
+  padding: max(14px, 4.2cqw) var(--pad) max(16px, 4.8cqw);
   background: #FFFFFF;
   color: var(--ink);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  gap: max(3px, .8cqw);
+  gap: max(10px, 3cqw);
 }
+.cv-logo { flex: none; height: max(40px, 11cqw); width: auto; max-width: 30cqw; object-fit: contain; }
+.cv-foot-text { display: flex; flex-direction: column; gap: max(3px, .8cqw); min-width: 0; }
+.cv-foot:not(.has-logo) .cv-foot-text { align-items: center; text-align: center; }
 .cv-sub { margin: 0; font-size: var(--t-small); font-weight: 500; letter-spacing: .08em; color: var(--ink-soft); }
 .cv-name { margin: 0; font-weight: 900; font-size: calc(max(20px, 4.6cqw) * var(--fit)); letter-spacing: .14em; color: var(--green-deep); }
 
-/* --- しごと（「13のこと」風：大きな番号と細い罫線） --- */
+/* --- しごと（右上の写真、「13のこと」風の番号リスト） --- */
+/* 右上の大きな写真：見出しの後ろに入り、左と下はページの色にとけこむ */
+.wk-photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 72cqw;
+  height: 66cqw;
+  background: var(--paper);
+}
+.wk-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, var(--paper) 0%, rgba(251, 246, 220, .85) 22%, rgba(251, 246, 220, 0) 62%),
+    linear-gradient(to top, var(--paper) 0%, rgba(251, 246, 220, .8) 25%, rgba(251, 246, 220, 0) 65%);
+}
+.pg-work .en { background: var(--paper); padding-right: max(8px, 2cqw); }
 .work-list { position: relative; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--ink); }
 .work-list li {
   display: grid;
@@ -432,7 +444,8 @@ button { font: inherit; }
 }
 .wl-v { margin: max(3px, .6cqw) 0 0; font-size: var(--t-body); line-height: 1.75; color: var(--ink); }
 
-/* --- 数字（「DATAで見る」風：細い大きな数字、縦書きの見出し） --- */
+/* --- 数字（「DATAで見る」風：細い大きな数字、縦書きの見出し、下段に写真） --- */
+.num-main { display: flex; flex-direction: column; gap: var(--gap); min-width: 0; }
 .num-wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: max(10px, 3cqw); align-items: start; }
 .num-title {
   margin: 0;
@@ -452,7 +465,7 @@ button { font: inherit; }
   border-top: 1px solid var(--ink);
 }
 .stat {
-  padding: calc(max(14px, 5cqw) * var(--fit)) max(6px, 1.6cqw) calc(max(14px, 5cqw) * var(--fit));
+  padding: calc(max(12px, 3.6cqw) * var(--fit)) max(6px, 1.6cqw) calc(max(12px, 3.4cqw) * var(--fit));
   border-bottom: 1px solid var(--rule);
   display: flex;
   flex-direction: column;
@@ -473,6 +486,29 @@ button { font: inherit; }
 }
 .stat-fig small { font-family: var(--f-body); font-weight: 700; font-size: .3em; margin-left: .15em; letter-spacing: 0; color: var(--ink); }
 .note { position: relative; margin: 0; font-size: var(--t-small); color: var(--ink-soft); }
+.num-photo { flex: 1 1 0; min-height: 18cqw; border-radius: max(10px, 2.4cqw); }
+.perks { position: relative; }
+.perks-h {
+  margin: 0 0 max(5px, 1.4cqw);
+  font-size: var(--t-label);
+  font-weight: 700;
+  color: var(--green-deep);
+  letter-spacing: .06em;
+}
+.perks-h::before { content: ""; display: inline-block; width: 1.4em; height: 1px; margin-right: .5em; background: var(--green-deep); vertical-align: .3em; }
+.perks ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: max(5px, 1.2cqw) max(5px, 1.2cqw); }
+.perks li {
+  font-size: var(--t-label);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+  background: #F1F6F2;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: .38em .9em .38em .75em;
+  white-space: nowrap;
+}
+.perks li::before { content: ""; display: inline-block; width: .5em; height: .5em; margin-right: .45em; border-radius: 50%; background: var(--lime); vertical-align: .08em; }
 
 /* --- 先輩（「My career up!」風：大きな写真と縦書きのひとこと） --- */
 .sp-head { position: relative; display: grid; grid-template-columns: 52% minmax(0, 1fr); gap: max(10px, 3cqw); align-items: start; }
@@ -534,15 +570,33 @@ button { font: inherit; }
 }
 .qa dd { margin: 3px 0 0 calc(var(--t-label) * 2.2); font-size: var(--t-body); line-height: 1.7; }
 
-/* --- オープンカンパニー --- */
-.details { position: relative; margin: 0; display: grid; grid-template-columns: calc(var(--t-label) * 5) minmax(0, 1fr); padding: 0 max(12px, 3cqw); background: #FFFFFF; border-top: 1px solid var(--ink); }
-.details dt, .details dd { padding-block: calc(max(7px, 2cqw) * var(--fit)); border-bottom: 1px solid var(--rule); font-size: var(--t-body); line-height: 1.6; margin: 0; }
-.details dt:last-of-type, .details dd:last-of-type { border-bottom: 0; }
+/* --- オープンカンパニー／仕事体験（上下2段） --- */
+.ev { position: relative; display: flex; flex-direction: column; gap: calc(max(5px, 1.5cqw) * var(--fit)); }
+.ev + .ev { padding: calc(max(8px, 2.6cqw) * var(--fit)) max(12px, 3cqw); background: #FFFFFF; border-top: max(3px, .6cqw) solid var(--green); }
+.ev-step {
+  align-self: flex-start;
+  font-family: var(--f-fig);
+  font-weight: 700;
+  font-size: var(--t-small);
+  letter-spacing: .12em;
+  color: #FFFFFF;
+  background: var(--green-deep);
+  padding: .15em .7em;
+  border-radius: 999px;
+}
+.ev .h { font-size: calc(max(16px, 4.2cqw) * var(--fit)); line-height: 1.4; }
+.ev .lead { line-height: 1.65; font-size: var(--t-label); }
+.ev .details dt, .ev .details dd { font-size: var(--t-label); }
+.ev .cta { font-size: var(--t-label); }
+.ev-row { display: flex; align-items: center; gap: max(10px, 2.6cqw); }
+.details { position: relative; flex: 1; min-width: 0; margin: 0; display: grid; grid-template-columns: calc(var(--t-label) * 4.4) minmax(0, 1fr); border-top: 1px solid var(--ink); }
+.details dt, .details dd { padding-block: calc(max(4px, 1.1cqw) * var(--fit)); border-bottom: 1px solid var(--rule); font-size: var(--t-body); line-height: 1.55; margin: 0; }
 .details dt { font-weight: 900; color: var(--green-deep); font-size: var(--t-label); }
-.cta-area { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-top: max(4px, 1cqw); }
+.ev-row .qr { width: max(64px, 15cqw); }
+.cta-area { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
 .cta {
   display: inline-flex; align-items: center; gap: 10px;
-  padding: max(11px, 2cqw) max(20px, 4cqw);
+  padding: calc(max(9px, 1.6cqw) * var(--fit)) max(16px, 3.4cqw);
   border-radius: 999px;
   border: 0;
   background: var(--green-deep);
@@ -555,14 +609,14 @@ button { font: inherit; }
   box-shadow: 0 max(3px, .7cqw) 0 var(--lime);
 }
 .cta svg { width: 1.1em; height: 1.1em; flex: none; }
-.cta-msg { margin: 0; font-size: var(--t-small); color: var(--shu); min-height: 1.4em; }
-.qr-row { position: relative; display: flex; align-items: center; gap: max(12px, 3cqw); margin-top: max(4px, 1cqw); }
+.cta-msg { margin: 0; font-size: var(--t-small); color: var(--shu); }
+.cta-msg:empty { display: none; }
 .qr { width: max(80px, 19cqw); flex: none; background: #FFFFFF; padding: max(4px, .8cqw); }
 .qr svg { display: block; width: 100%; height: auto; }
 .qr svg rect { fill: #FFFFFF; }
 .qr svg path { fill: var(--ink); }
-.qr-text { font-size: var(--t-small); line-height: 1.7; color: var(--ink-soft); min-width: 0; overflow-wrap: anywhere; }
-.qr-text b { display: block; color: var(--ink); font-size: var(--t-label); }
+.qr-text { margin: 0; font-size: var(--t-small); line-height: 1.6; color: var(--ink-soft); overflow-wrap: anywhere; }
+.qr-text b { color: var(--ink); }
 
 /* --- 裏表紙 --- */
 .pg-back { background: var(--green-deep); color: #FFFFFF; }
@@ -579,7 +633,7 @@ button { font: inherit; }
 }
 .pg-back .pg-body { justify-content: space-between; }
 .bk-top { position: relative; display: flex; flex-direction: column; gap: max(8px, 2cqw); }
-.bk-top .lk-big { font-size: max(36px, 12cqw); }
+.bk-top .lk-big { font-size: calc(max(36px, 12cqw) * var(--fit)); }
 .bk-msg { margin: 0; font-family: var(--f-display); font-weight: 700; font-size: var(--t-label); letter-spacing: .12em; color: var(--green-soft); }
 .bk-main { position: relative; display: flex; flex-direction: column; gap: max(8px, 1.8cqw); }
 .bk-script { font-family: var(--f-script); font-size: max(24px, 7cqw); line-height: 1; color: var(--lime); }
@@ -733,16 +787,29 @@ const CONTENT_URL = "content.json";
 const IN_FRAME = (() => { try { return window.self !== window.top; } catch (e) { return true; } })();
 const CAN_PRINT = !IN_FRAME;
 
-const HEADS = { work: "しごと", numbers: "数字", senpai: "先輩社員", open: "オープンカンパニー" };
-// 英字のラベルと、表紙・裏表紙の英字（デザインの一部。シートでは変えない）
-const EN = { work: "WORK", numbers: "DATA", senpai: "PEOPLE", open: "EVENT" };
-const LOCKUP = ["BEYOND", "THE", "NUMBERS."];
-const COVER_SCRIPT = "You know...";
-const COVER_LABEL = "採用パンフレット";
-const WEB_NOTE = "最新の内容はウェブ版でご覧いただけます";
+// content.json にない項目（古い content.json のとき）だけに使う文字。ふだんはシートの文字が使われる
+const DEFAULTS = {
+  common: { label: "採用パンフレット", webNote: "最新の内容はウェブ版でご覧いただけます", qrNote: "スマートフォンでQRコードを読み取ると、申込みページが開きます。" },
+  cover: { tag: "RECRUIT GUIDE", script: "You know...", en1: "BEYOND", en2: "THE", en3: "NUMBERS." },
+  work: { en: "WORK", label: "しごと" },
+  numbers: { en: "DATA", label: "数字" },
+  senpai: { en: "PEOPLE", label: "先輩社員" },
+  open: { en: "EVENT", label: "オープンカンパニー・仕事体験", step: "STEP 1" },
+  intern: { step: "STEP 2" },
+  back: { script: "See you soon." }
+};
+function withDefaults(c) {
+  Object.keys(DEFAULTS).forEach(sec => {
+    c[sec] = c[sec] || {};
+    Object.keys(DEFAULTS[sec]).forEach(k => { if (c[sec][k] === undefined) c[sec][k] = DEFAULTS[sec][k]; });
+  });
+  c.photos = c.photos || {};
+  return c;
+}
 const A4_W = 794; // A4の幅（px）
 
 let C = null;      // 読み込んだ中身
+let L = {};        // 共通の文字（C.common）
 let IS_SAMPLE = false;
 
 // ─── 共通の部品 ───
@@ -760,12 +827,15 @@ function qrSvg(url) {
     return q.createSvgTag({ cellSize: 4, margin: 0, scalable: true, alt: "QRコード" });
   } catch (e) { return ""; }
 }
-function runningHead(label) {
-  return `<header class="rh"><span>${esc(C.company)}　${COVER_LABEL}</span><b>${esc(label)}</b></header>`;
+function runningHead() {
+  return `<header class="rh">${esc(C.company)}　${esc(L.label)}</header>`;
 }
 // 番号つきの見出しラベル（例：［WORK］01 しごと）
-function enHead(type, n) {
-  return `<div class="en"><span class="en-tag" aria-hidden="true">${EN[type]}</span><span class="en-no" aria-hidden="true">${String(n - 1).padStart(2, "0")}</span><span class="en-ja">${HEADS[type]}</span></div>`;
+function enHead(sec, n) {
+  return `<div class="en"><span class="en-tag" aria-hidden="true">${esc(sec.en)}</span><span class="en-no" aria-hidden="true">${String(n - 1).padStart(2, "0")}</span><span class="en-ja">${esc(sec.label)}</span></div>`;
+}
+function heading(text) {
+  return `<h2 class="h"><span class="mk">${nl(text)}</span></h2>`;
 }
 // 仕事の名前：頭の1文字を丸で囲む（3つ並ぶと縦に読める。例：み・さ・わ）
 function itemName(text) {
@@ -773,11 +843,48 @@ function itemName(text) {
   if (!chars.length) return "";
   return `<span class="wl-k"><span class="wl-ini">${esc(chars[0])}</span>${nl(chars.slice(1).join(""))}</span>`;
 }
-function heading(text) {
-  return `<h2 class="h"><span class="mk">${nl(text)}</span></h2>`;
-}
 function lockup() {
-  return `<p class="lockup" aria-hidden="true"><span class="lk-big">${LOCKUP[0]}</span><span class="lk-small">${LOCKUP[1]}</span><span class="lk-big">${LOCKUP[2]}</span></p>`;
+  const c = C.cover || {};
+  return `<p class="lockup" aria-hidden="true">${[["lk-big", c.en1], ["lk-small", c.en2], ["lk-big", c.en3]]
+    .filter(([, t]) => String(t || "").trim()).map(([k, t]) => `<span class="${k}">${esc(t)}</span>`).join("")}</p>`;
+}
+function photoTag(key, cls, alt) {
+  const src = (C.photos || {})[key];
+  return src ? `<div class="ph ${cls}"><img src="${esc(src)}" alt="${esc(alt)}"></div>` : "";
+}
+// 申込み：画面ではボタン、印刷ではQRコード
+function applyAction(url, button, print) {
+  if (!String(url || "").trim()) return "";
+  if (print) return `<div class="qr">${qrSvg(url)}</div>`;
+  return `<div class="cta-area">
+      <a class="cta" href="${esc(url)}" target="_blank" rel="noopener" data-apply>${esc(button)}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="cta-msg" aria-live="polite"></p>
+    </div>`;
+}
+function eventBlock(e, step, print) {
+  if (!e || !String(e.title || "").trim()) return "";
+  const action = applyAction(e.applyUrl, e.button, print);
+  return `
+    <section class="ev">
+      ${String(step || "").trim() ? `<span class="ev-step">${esc(step)}</span>` : ""}
+      ${heading(e.title)}
+      ${String(e.lead || "").trim() ? `<p class="lead">${nl(e.lead)}</p>` : ""}
+      <div class="ev-row">
+        <dl class="details">${filled(e.details).map(d => `<dt>${esc(d.k)}</dt><dd>${nl(d.v)}</dd>`).join("")}</dl>
+        ${print ? action : ""}
+      </div>
+      ${print ? "" : action}
+    </section>`;
+}
+// 福利厚生：小さな札を並べる（空の行は出さない）
+function perks(m) {
+  const list = filled(m.perks);
+  if (!list.length) return "";
+  return `<div class="perks">
+      ${String(m.perksTitle || "").trim() ? `<p class="perks-h">${esc(m.perksTitle)}</p>` : ""}
+      <ul>${list.map(p => `<li>${esc(p.k)}</li>`).join("")}</ul>
+    </div>`;
 }
 function folio(n) {
   return `<footer class="pf ${n % 2 ? "is-odd" : ""}">P.${String(n).padStart(2, "0")}</footer>`;
@@ -790,26 +897,28 @@ function webUrl() {
 const PAGES = [
   { type: "cover", hard: true, render: () => {
       const c = C.cover || {};
+      const p = C.photos || {};
       return `
-        <div class="cv-top"><span>RECRUIT GUIDE</span><b>${esc(c.year)}</b></div>
+        <div class="cv-deco" aria-hidden="true"><div class="cv-bg${p.cover ? " has-img" : ""}">${p.cover ? `<img src="${esc(p.cover)}" alt="">` : ""}</div></div>
+        <div class="cv-top"><span>${esc(c.tag)}</span>${String(c.year || "").trim() ? `<b>${esc(c.year)}</b>` : ""}</div>
         <div class="cv-main">
-          <div class="cv-en"><span class="cv-script" aria-hidden="true">${COVER_SCRIPT}</span>${lockup()}</div>
+          <div class="cv-en">${String(c.script || "").trim() ? `<span class="cv-script" aria-hidden="true">${esc(c.script)}</span>` : ""}${lockup()}</div>
           <h1 class="cv-message">${nl(c.message)}</h1>
-          <div class="stamp" aria-hidden="true">${esc(c.stamp)}</div>
-          <div class="ledger" aria-hidden="true">
-            <div>1,284,000</div><div>365,250</div><div class="sum">1,649,250</div>
-          </div>
         </div>
-        <div class="cv-foot">
-          <p class="cv-sub">${esc(c.sub)}</p>
-          <p class="cv-name">${esc(C.company)}</p>
+        <div class="cv-foot${p.logo ? " has-logo" : ""}">
+          ${p.logo ? `<img class="cv-logo" src="${esc(p.logo)}" alt="">` : ""}
+          <div class="cv-foot-text">
+            ${String(c.sub || "").trim() ? `<p class="cv-sub">${esc(c.sub)}</p>` : ""}
+            <p class="cv-name">${esc(C.company)}</p>
+          </div>
         </div>`;
   }},
   { type: "work", inner: true, render: n => {
       const w = C.work || {};
       return `
-        ${runningHead(EN.work)}
-        ${enHead("work", n)}
+        ${photoTag("work", "wk-photo", w.label)}
+        ${runningHead()}
+        ${enHead(w, n)}
         ${heading(w.title)}
         <p class="lead">${nl(w.lead)}</p>
         <ul class="work-list">
@@ -820,9 +929,10 @@ const PAGES = [
   { type: "numbers", inner: true, render: n => {
       const m = C.numbers || {};
       return `
-        ${runningHead(EN.numbers)}
-        ${enHead("numbers", n)}
+        ${runningHead()}
+        ${enHead(m, n)}
         <div class="num-wrap">
+          <div class="num-main">
           <div class="stats">
             ${filled(m.items).map(i => `
               <div class="stat">
@@ -830,19 +940,23 @@ const PAGES = [
                 <span class="stat-k">${nl(i.k)}</span>
               </div>`).join("")}
           </div>
+          ${m.note ? `<p class="note">${nl(m.note)}</p>` : ""}
+          ${perks(m)}
+          </div>
           <h2 class="num-title">${nl(m.title)}</h2>
         </div>
-        ${m.note ? `<p class="note">${nl(m.note)}</p>` : ""}
+        ${photoTag("numbers", "num-photo", m.label)}
         ${folio(n)}`;
   }},
   { type: "senpai", inner: true, render: n => {
       const s = C.senpai || {};
-      const photo = s.photo
-        ? `<div class="photo has-img"><img src="${esc(s.photo)}" alt="${esc(s.name)}の写真"></div>`
-        : `<div class="photo" role="img" aria-label="先輩社員の写真">写真</div>`;
+      const src = (C.photos || {}).senpai || s.photo;
+      const photo = src
+        ? `<div class="photo has-img"><img src="${esc(src)}" alt="${esc(s.name)}"></div>`
+        : `<div class="photo" role="img" aria-label="${esc(s.label)}">写真</div>`;
       return `
-        ${runningHead(EN.senpai)}
-        ${enHead("senpai", n)}
+        ${runningHead()}
+        ${enHead(s, n)}
         <div class="sp-head">
           ${photo}
           <p class="sp-quote">${nl(s.quote)}</p>
@@ -858,21 +972,15 @@ const PAGES = [
   }},
   { type: "open", inner: true, render: (n, print) => {
       const o = C.open || {};
-      const action = print
-        ? `<div class="qr-row"><div class="qr">${qrSvg(o.applyUrl)}</div>
-             <p class="qr-text"><b>申込みはこちらから</b>スマートフォンで読み取ると申込みページが開きます。<br>${esc(o.applyUrl)}</p></div>`
-        : `<div class="cta-area">
-             <a class="cta" href="${esc(o.applyUrl)}" target="_blank" rel="noopener" data-apply>${esc(o.button)}
-               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-             <p class="cta-msg" aria-live="polite"></p>
-           </div>`;
+      const t = C.intern || {};
+      const qrNote = print && (String(o.applyUrl || "").trim() || String(t.applyUrl || "").trim()) && String(L.qrNote || "").trim()
+        ? `<p class="qr-text">${nl(L.qrNote)}</p>` : "";
       return `
-        ${runningHead(EN.open)}
-        ${enHead("open", n)}
-        ${heading(o.title)}
-        <p class="lead">${nl(o.lead)}</p>
-        <dl class="details">${filled(o.details).map(d => `<dt>${esc(d.k)}</dt><dd>${nl(d.v)}</dd>`).join("")}</dl>
-        ${action}
+        ${runningHead()}
+        ${enHead(o, n)}
+        ${eventBlock(o, o.step, print)}
+        ${eventBlock(t, t.step, print)}
+        ${qrNote}
         ${folio(n)}`;
   }},
   { type: "back", hard: true, render: (n, print) => {
@@ -885,14 +993,14 @@ const PAGES = [
           <p class="bk-msg">${esc(message)}</p>
         </div>
         <div class="bk-main">
-          <span class="bk-script" aria-hidden="true">See you soon.</span>
+          ${String(b.script || "").trim() ? `<span class="bk-script" aria-hidden="true">${esc(b.script)}</span>` : ""}
           <p class="bk-name">${esc(C.company)}</p>
           <p class="bk-desc">${nl(b.desc)}</p>
           <dl class="bk-contact">${filled(b.contact).map(c => `<dt>${esc(c.k)}</dt><dd>${esc(c.v)}</dd>`).join("")}</dl>
         </div>
         <div class="bk-web">
           ${qr ? `<div class="qr">${qr}</div>` : ""}
-          <p>${WEB_NOTE}<br>${esc(webUrl())}</p>
+          <p>${nl(L.webNote)}<br>${esc(webUrl())}</p>
         </div>`;
   }}
 ];
@@ -917,12 +1025,15 @@ function overflows(pg) {
     const colW = parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.6;
     const lines = msg.querySelectorAll("br").length + 1;
     if (r.width > lines * colW + 2) return true;   // 縦書きの1行が長くて折り返している
-    if (r.bottom > pg.querySelector(".cv-main").getBoundingClientRect().bottom + 1) return true;
-    // 英字・はんこと重なっていないか
+    const main = pg.querySelector(".cv-main").getBoundingClientRect();
+    if (r.bottom > main.bottom + 1 || r.top < main.top - 1) return true;
+    // 英字と重なっていないか
     const en = pg.querySelector(".cv-en");
-    const stamp = pg.querySelector(".stamp");
     if (en && hits(r, en.getBoundingClientRect())) return true;
-    if (stamp && hits(r, stamp.getBoundingClientRect())) return true;
+  }
+  // 英字が横にはみ出していないか
+  for (const lk of pg.querySelectorAll(".lockup")) {
+    if (lk.scrollWidth > lk.clientWidth + 1) return true;
   }
   // 縦書きのひとことが、決めた高さからはみ出していないか
   const q = pg.querySelector(".sp-quote");
@@ -1086,8 +1197,10 @@ function showError() {
 (async function init() {
   try { C = await loadContent(); } catch (e) { showError(); return; }
   C.company = C.company || "";
+  withDefaults(C);
+  L = C.common;
   IS_SAMPLE = !!C._sample;
-  document.getElementById("brand").textContent = `${C.company}　${COVER_LABEL}`;
+  document.getElementById("brand").textContent = `${C.company}　${L.label}`;
   document.getElementById("sampleNote").hidden = !IS_SAMPLE;
 
   startBook();
