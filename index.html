@@ -3,8 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="三澤会計グループの採用パンフレット。会計事務所のしごと、少しだけ見せます。">
+<!-- OGP:start（LINEなどでURLを送ったときの表示。［サイトに反映する］で自動で書き換わるので、ここは直さない） -->
 <title>三澤会計グループ 採用パンフレット</title>
+<meta name="description" content="数字の先にある、会社の未来を支える。三澤会計グループの採用パンフレット">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="三澤会計グループ">
+<meta property="og:title" content="三澤会計グループ 採用パンフレット">
+<meta property="og:description" content="数字の先にある、会社の未来を支える。三澤会計グループの採用パンフレット">
+<meta property="og:image" content="images/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<!-- OGP:end -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Barlow+Condensed:wght@300;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Old+Mincho:wght@700;900&display=swap">
@@ -278,7 +289,8 @@ button { font: inherit; }
 }
 /* 黄緑のマーカー */
 .mk {
-  background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 94%, transparent 94%);
+  /* 単色の帯を下寄りに敷く（グラデーションの境目だと、印刷したPDFに細い線が出ることがある） */
+  background: linear-gradient(var(--lime), var(--lime)) no-repeat 0 91.2% / 100% 32%;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   padding-inline: .06em;
