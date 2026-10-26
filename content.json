@@ -107,7 +107,7 @@
         "a": "少しでも「気になる」と思ったら、それで十分です。\n会ってお話しできるのを楽しみにしています。"
       }
     ],
-    "photo": "images/senpai.jpg?v=5dc28bba"
+    "photo": ""
   },
   "open": {
     "en": "EVENT",
@@ -165,13 +165,14 @@
     ]
   },
   "photos": {
-    "cover": "images/cover.jpg?v=193678fb",
-    "work": "images/work.jpg?v=6f6d9594",
-    "numbers": "images/numbers.jpg?v=b1d0c503",
-    "senpai": "images/senpai.jpg?v=5dc28bba",
-    "logo": "images/logo.jpg?v=c6da6977"
+    "cover": "",
+    "work": "",
+    "numbers": "",
+    "senpai": "",
+    "ogp": "",
+    "logo": ""
   },
-  "updatedAt": "2026-10-24T12:02:08.889Z",
+  "updatedAt": "2026-10-26T22:42:47.702Z",
   "_sheet": {
     "company": "三澤会計グループ",
     "common.label": "採用デジタルパンフレット",
